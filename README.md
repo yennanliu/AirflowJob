@@ -6,7 +6,7 @@
 
 
 
-# Quick Start ( Astronomer Airflow)
+# Quick Start ( Run Airflow via Astronomer locally)
 
 ```bash
 
@@ -31,12 +31,16 @@ astro airflow init
 # check astro docker status 
 docker ps
 
+# check docker log 
+docker logs $(docker ps | grep scheduler | awk '{print $1}')
 
 ```
 
 # Docker Deploy 
 
 ```bash 
+
+# dev 
 
 ```
 
