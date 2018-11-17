@@ -16,15 +16,11 @@ url='https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-
 
 
 # help func 
-
 def get_country_name(country_name_rates):
-    
     return list(country_name_rates.keys())[0]
 
-def get_country_rate(country_name_rates):
-    
+def get_country_rate(country_name_rates): 
     return float((list(country_name_rates.values()))[0])
-
 
 def get_exchange_rates_data(url):
 	url='https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=GBP&symbols=USD'
@@ -37,9 +33,6 @@ def get_exchange_rates_data(url):
 
 
 # airflow DAG 
-
-
-
 args = {
     'owner': 'yen',
     'depends_on_past': False,
@@ -52,10 +45,9 @@ args = {
 with DAG(dag_id='DAG_get_GBP_USD_exchange_rate', default_args=args) as dag:
 	start_dag = DummyOperator(task_id='START_dag')
 	get_api_data_step = PythonOperator(
-						task_id='get_api_data_step',
-						python_callable=get_exchange_rates_data)
+	task_id='get_api_data_step',
+	python_callable=get_exchange_rates_data)
 	end_dag = DummyOperator(task_id='END_dag')
-
 
 	start_dag >> get_api_data_step >> end_dag
 
