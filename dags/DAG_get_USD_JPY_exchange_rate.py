@@ -9,8 +9,8 @@ import urllib
 
 
 # -------------- config --------------
-# get exchangerates :  GBP -> USD 
-url='https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=USD&symbols=NTD'
+# get exchangerates :  USD -> JPY 
+url='https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=USD&symbols=JPY'
 
 # -------------- config --------------
 
@@ -41,7 +41,7 @@ args = {
     }
 
 
-with DAG(dag_id='DAG_get_USD_NTD_exchange_rate', default_args=args) as dag:
+with DAG(dag_id='DAG_get_USD_JPY_exchange_rate', default_args=args) as dag:
 	start_dag = DummyOperator(task_id='START_dag')
 	get_api_data_step = PythonOperator(
 	task_id='get_api_data_step',
