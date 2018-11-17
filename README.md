@@ -37,9 +37,24 @@ curl -sL https://install.astronomer.io | sudo bash
 astro 
 
 # init airflow 
-astro airflow init 
+cd && cd XBot && astro airflow init 
+# the file structure should like below:
+#├── Dockerfile
+#├── README.md
+#├── dags
+#│   └── example-dag.py
+#├── include
+#├── packages.txt
+#├── plugins
+#│   └── example-plugin.py
+#└── requirements.txt
+
 
 # TODO : populate crendentials (DB/S3...)
+
+# Run the Astro Airflow locally 
+# make sure the Docker daemon APP is alrady runnning 
+astro airflow start
 
 # check astro docker status 
 docker ps
