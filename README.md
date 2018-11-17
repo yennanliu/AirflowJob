@@ -12,13 +12,24 @@
 
 # https://www.astronomer.io/docs/getting-started/
 
+# set up dev environment 
+conda update conda && conda create -n XBot_dev python=3.5 
+
+# launch dev env 
+source activate XBot_dev
+
 # Install go 
 brew install go
+
 # get astronomer CLI
 curl -sSL https://install.astronomer.io | sudo bash
 
 # install needed packages (python)
 pip install -r requirements.txt
+
+# install InstaPy
+# https://github.com/timgrossmann/InstaPy#basic-installation
+pip install git+https://github.com/timgrossmann/InstaPy.git
 
 # verify install success 
 astro 
