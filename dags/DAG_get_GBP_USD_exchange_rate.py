@@ -22,8 +22,7 @@ def get_country_name(country_name_rates):
 def get_country_rate(country_name_rates): 
     return float((list(country_name_rates.values()))[0])
 
-def get_exchange_rates_data(url):
-	url='https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=GBP&symbols=USD'
+def get_exchange_rates_data():
 	content = urllib.request.urlopen(url).read()
 	df=pd.read_json(content)
 	df['country_name']= df['rates'].map(get_country_name)
