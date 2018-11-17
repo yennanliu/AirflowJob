@@ -31,7 +31,7 @@ pip install git+https://github.com/timgrossmann/InstaPy.git
 brew install go
 
 # get astronomer CLI
-curl -sSL https://install.astronomer.io | sudo bash
+curl -sL https://install.astronomer.io | sudo bash
 
 # verify install success 
 astro 
