@@ -1,0 +1,4 @@
+# get the slack API key : https://api.slack.com/apps
+
+slack_api:
+  token: '<your_access_token>'
