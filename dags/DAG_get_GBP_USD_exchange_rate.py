@@ -3,6 +3,7 @@ from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator 
+from airflow.operators.slack_operator import SlackAPIPostOperator
 from datetime import datetime, timedelta
 import pandas as pd 
 import urllib 
@@ -11,7 +12,6 @@ import urllib
 # -------------- config --------------
 # get exchangerates :  GBP -> USD 
 url='https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=GBP&symbols=USD'
-
 # -------------- config --------------
 
 
@@ -42,13 +42,23 @@ args = {
 
 
 with DAG(dag_id='DAG_get_GBP_USD_exchange_rate', default_args=args) as dag:
+
 	start_dag = DummyOperator(task_id='START_dag')
+
 	get_api_data_step = PythonOperator(
 	task_id='get_api_data_step',
 	python_callable=get_exchange_rates_data)
+
+	post_to_slack_step = SlackAPIPostOperator( 
+	task_id = 'post_to_slack_step',
+	channel= SLACK_CHANNEL,
+	token = SLACK_TOKEN,
+	username = SLACK_USER, 
+	text = 'this is a msg from XBbot slack bot')
+
 	end_dag = DummyOperator(task_id='END_dag')
 
-	start_dag >> get_api_data_step >> end_dag
+	start_dag >> get_api_data_step >> post_to_slack_step >> end_dag
 
 
 
