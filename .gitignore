@@ -1,0 +1,5 @@
+.creds.yml
+*.pyc
+*__pycache__
+*.DS_Store
+*.ipynb
