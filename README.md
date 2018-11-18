@@ -74,6 +74,17 @@ astro airflow kill
 astro airflow init
 astro airflow start
 
+
+
+############## PART 5 : INTEGRATE WITH SLACK ##############
+
+# set up Slack bot app 
+# https://api.slack.com/apps
+# test with setting 
+curl -X POST -H 'Content-type: application/json' --data '{"text":" 12345"}' https://hooks.slack.com/services/<ur_workspace_id>/<ur_channel_id>/<ur_access_token>
+
+
+
 ```
 
 # Docker Deploy 
