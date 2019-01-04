@@ -7,7 +7,8 @@ from airflow.operators.slack_operator import SlackAPIPostOperator
 from datetime import datetime, timedelta
 import pandas as pd 
 import urllib 
-import sys, os 
+import sys, os
+import json 
 
 
 # UDF 
@@ -30,14 +31,38 @@ def get_country_name(country_name_rates):
 def get_country_rate(country_name_rates): 
     return float((list(country_name_rates.values()))[0])
 
+def fix_to_json(bytes_data):
+	# fix bytes data to json make it's OK to parse in python 
+	# https://stackoverflow.com/questions/40059654/python-convert-a-bytes-array-into-json-format
+	return json.loads(bytes_data.decode('utf8').replace("'", '"'))
+
+
 def get_exchange_rates_data(**kwargs):
 	content = urllib.request.urlopen(url).read()
+	content_ = fix_to_json(content)
 	df=pd.read_json(content)
 	df['country_name']= df['rates'].map(get_country_name)
 	df['country_rate']= df['rates'].map(get_country_rate)
 	print (' API response (df):', df.head())
 	#return content
 	kwargs['ti'].xcom_push(key='UK_USD_rates', value=content) 
+	slack_attachments = [
+	{
+	"color": "#342f54",
+	"title": "GBP->USD EXCHANGE RATE",
+	"footer": 'OK',
+	"df_url": "{{ task_instance.xcom_pull(task_ids='get_api_data_step') }}",
+	} ]
+	slack_post = SlackAPIPostOperator( 
+	task_id = 'post_to_slack_step',
+	channel= 'slack-bot-dev1',
+	token = SLACK_API_TOKEN,
+	username = 'Xbot', 
+	text = content_,
+	attachments=slack_attachments,
+	provide_context=True)
+	return slack_post.execute(content='123')
+
 
 
 def post_to_slack(**kwargs):
