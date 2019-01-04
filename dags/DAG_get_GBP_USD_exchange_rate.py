@@ -58,7 +58,7 @@ def get_exchange_rates_data(**kwargs):
 	channel= 'slack-bot-dev1',
 	token = SLACK_API_TOKEN,
 	username = 'Xbot', 
-	text = content_,
+	text = content_, 
 	attachments=slack_attachments,
 	provide_context=True)
 	return slack_post.execute(content='123')
@@ -66,7 +66,7 @@ def get_exchange_rates_data(**kwargs):
 
 
 def post_to_slack(**kwargs):
-	msg= kwargs['ti'].xcom_pull(key='UK_USD_rates',task_ids='get_exchange_rates_data')
+	msg= kwargs['ti'].xcom_pull(key=None,task_ids='get_exchange_rates_data')
 	print ('msg :' , msg)
 	slack_attachments = [
     {
@@ -93,6 +93,7 @@ args = {
     'start_date': datetime(2018, 12, 30),
     'retries': 1,
     'retry_delay': timedelta(minutes=1),
+    'provide_context':True
     }
 
 
@@ -105,13 +106,17 @@ with DAG(dag_id='DAG_get_GBP_USD_exchange_rate',
 	get_api_data_step = PythonOperator(
 	task_id='get_api_data_step',
 	python_callable=get_exchange_rates_data,
-	provide_context=True)
+	provide_context=True,
+	dag=dag,
+	args=args)
 
 
 	post_to_slack_step = PythonOperator(
 	task_id='post_to_slack_step',
 	python_callable=post_to_slack,
-	provide_context=True)
+	provide_context=True,
+	dag=dag,
+	args=args)
 
 	end_dag = DummyOperator(task_id='END_dag')
 
