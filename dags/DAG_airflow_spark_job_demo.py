@@ -5,6 +5,15 @@ from airflow.operators.dummy_operator import DummyOperator
 from datetime import datetime, timedelta
 import os
 
+#################################################################
+# DAG DEMO RUN SAPRK SCRIPT IN AIRFLOW ETL FRAMEWORK    
+#################################################################
+
+# ref 
+# https://blog.insightdatascience.com/scheduling-spark-jobs-with-airflow-4c66f3144660
+# https://github.com/danielblazevski/airflow-pyspark-reddit
+
+
 srcDir = os.getcwd() + '/src/'
 
 default_args = {
