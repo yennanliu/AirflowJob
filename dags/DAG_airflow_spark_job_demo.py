@@ -19,7 +19,7 @@ srcDir = os.getcwd() + '/src/'
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
-    'start_date': datetime(2019, 01, 01, 16, 12),
+    'start_date': datetime(2019, 1, 1, 16, 12),
     'retries': 5,
     'retry_delay': timedelta(minutes=1),
 }
