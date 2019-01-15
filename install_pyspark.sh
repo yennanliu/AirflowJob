@@ -33,15 +33,15 @@ echo '>>>> STEP 1)  set dev env'
 # download here  : http://spark.apache.org/downloads.html
 echo '>>>> STEP 2)  install pyspark'
 cd ~
-wget --quiet http://apache.mirror.anlx.net/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz
-tar -xzf $my_route/Downloads/spark-2.3.0-bin-hadoop2.7.tgz
+wget --quiet http://apache.mirror.anlx.net/spark/spark-2.3.2/spark-2.3.2-bin-hadoop2.7.tgz
+tar -xzf $my_route/Downloads/spark-2.3.2-bin-hadoop2.7.tgz
 #mv spark-2.3.0-bin-hadoop2.7 /Users/yennanliu/spark-2.3.0-bin-hadoop2.7
-mv $my_route/Downloads/spark-2.3.0-bin-hadoop2.7 $my_route/spark-2.3.0-bin-hadoop2.7
+mv $my_route/Downloads/spark-2.3.2-bin-hadoop2.7 $my_route/spark-2.3.2-bin-hadoop2.7
 
 cd ~
 #mkdir spark
 #cp -R /Users/yennanliu/spark-2.3.0-bin-hadoop2.7 /Users/yennanliu/spark
-cp -R $my_route/spark-2.3.0-bin-hadoop2.7 $my_route/spark
+cp -R $my_route/spark-2.3.2-bin-hadoop2.7 $my_route/spark
 
 # install python pyspark library 
 pip install pyspark
