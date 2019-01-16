@@ -1,3 +1,4 @@
+# stage 0)
 FROM astronomerinc/ap-airflow:0.7.5-1.10.1-onbuild AS base
 
 # Define en_US.
@@ -18,6 +19,7 @@ COPY . $HOME
 RUN /bin/bash -c "source install_pyspark.sh"
 
 
+# stage 1)
 FROM java:8-jdk AS java_layer 
 
 # Set up env var
@@ -26,6 +28,8 @@ ENV SPARK_HOME /spark
 WORKDIR $HOME
 COPY . $HOME
 
+# stage 2)
+# merge stage 0 and stage 1 
 FROM base 
 COPY --from=java_layer /app /app
 
