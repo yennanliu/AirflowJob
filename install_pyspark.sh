@@ -20,7 +20,7 @@ http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.h
 COMMENT1
 
 # get ops route 
-my_route=$(PWD)
+my_route=$(pwd)
 echo $my_route
 
 # set dev env 
@@ -34,9 +34,13 @@ echo '>>>> STEP 1)  set dev env'
 echo '>>>> STEP 2)  install pyspark'
 cd ~
 wget --quiet http://apache.mirror.anlx.net/spark/spark-2.3.2/spark-2.3.2-bin-hadoop2.7.tgz
-tar -xzf $my_route/Downloads/spark-2.3.2-bin-hadoop2.7.tgz
+echo 'location :'
+pwd 
+echo 'file :'
+ls 
+tar -xzf $my_route/spark-2.3.2-bin-hadoop2.7.tgz
 #mv spark-2.3.0-bin-hadoop2.7 /Users/yennanliu/spark-2.3.0-bin-hadoop2.7
-mv $my_route/Downloads/spark-2.3.2-bin-hadoop2.7 $my_route/spark-2.3.2-bin-hadoop2.7
+#mv $my_route/spark-2.3.2-bin-hadoop2.7 $my_route/spark-2.3.2-bin-hadoop2.7
 
 cd ~
 #mkdir spark
