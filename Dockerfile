@@ -23,7 +23,7 @@ RUN /bin/bash -c "source install_pyspark.sh"
 FROM java:8-jdk AS java_layer 
 
 # Set up env var
-ENV HOME /app
+ENV HOME /java
 ENV SPARK_HOME /spark
 WORKDIR $HOME
 COPY . $HOME
@@ -31,7 +31,7 @@ COPY . $HOME
 # stage 2)
 # merge stage 0 and stage 1 
 FROM base 
-COPY --from=java_layer /app /app
+COPY --from=java_layer /java /app
 
 
 # ----------------------- dev -----------------------
