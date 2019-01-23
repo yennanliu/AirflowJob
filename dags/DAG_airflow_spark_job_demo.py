@@ -39,7 +39,7 @@ with DAG('DAG_airflow_spark_job_demo', default_args=default_args, schedule_inter
         dag=dag)
 
     export_spark_home_task = BashOperator(
-        task_id='print_path_env',
+        task_id='export_spark_home',
         bash_command='export SPARK_HOME=spark',
         dag=dag)
 
