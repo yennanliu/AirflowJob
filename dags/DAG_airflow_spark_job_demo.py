@@ -29,7 +29,7 @@ default_args = {
 }
 
 
-with DAG('airflowsparkdemo', default_args=default_args, schedule_interval=timedelta(seconds=45)) as dag:
+with DAG('DAG_airflow_spark_job_demo', default_args=default_args, schedule_interval=timedelta(seconds=45)) as dag:
 
     start_dag = DummyOperator(task_id='START_dag')
 
@@ -41,7 +41,8 @@ with DAG('airflowsparkdemo', default_args=default_args, schedule_interval=timede
     spark_job= BashOperator(
         task_id='spark-job-run',
         #bash_command= 'pwd' + 'ls' + 'ls tmp ' +  'python ' + srcDir + 'pyspark_demo.py ',
-        bash_command= 'pwd && ls && ls /tmp/airflowtmphvku3n3v',
+        #bash_command= 'pwd && ls && ls /tmp',
+        bash_command='python ' + srcDir + 'pyspark_demo.py ',
         dag=dag)
     spark_ml_job= BashOperator(
         task_id='spark-ml_job-run',
