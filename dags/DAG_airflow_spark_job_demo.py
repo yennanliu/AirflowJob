@@ -38,6 +38,11 @@ with DAG('DAG_airflow_spark_job_demo', default_args=default_args, schedule_inter
         bash_command='echo $PATH',
         dag=dag)
 
+    export_spark_home_task = BashOperator(
+        task_id='print_path_env',
+        bash_command='export SPARK_HOME=spark',
+        dag=dag)
+
     spark_job= BashOperator(
         task_id='spark-job-run',
         #bash_command= 'pwd' + 'ls' + 'ls tmp ' +  'python ' + srcDir + 'pyspark_demo.py ',
@@ -50,6 +55,6 @@ with DAG('DAG_airflow_spark_job_demo', default_args=default_args, schedule_inter
         dag=dag)
     end_dag = DummyOperator(task_id='END_dag')
 
-    start_dag >> print_path_env_task >> spark_job >> spark_ml_job >> end_dag
+    start_dag >> print_path_env_task >> export_spark_home_task >> spark_job >> spark_ml_job >> end_dag
 
 
