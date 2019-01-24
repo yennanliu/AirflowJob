@@ -21,7 +21,7 @@ sys.path.append(os.path.join(os.environ['SPARK_HOME'], 'bin'))
 
 #srcDir = os.getcwd() + '/src/'
 #srcDir = '/usr/local/airflow/dags/src/'
-srcDir = os.getcwd() + '/src/'
+srcDir = os.getcwd() + 'dags/src/'
 
 default_args = {
     'owner': 'airflow',
