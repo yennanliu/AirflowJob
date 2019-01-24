@@ -32,9 +32,9 @@ default_args = {
 }
 
 env = {
-    'SPARK_HOME': '/usr',
-    'AIRFLOW_HOME' : '/usr/local/airflow',
-    'JAVA_HOME': '/usr/bin' 
+    #'SPARK_HOME': '/spark',
+    'AIRFLOW_HOME' : '/usr/local/airflow'
+    #'JAVA_HOME': '/usr/bin' 
 }
 
 
@@ -62,7 +62,7 @@ with DAG('DAG_airflow_spark_job_demo', default_args=default_args, schedule_inter
         task_id='spark-job-run',
         #bash_command= 'pwd' + 'ls' + 'ls tmp ' +  'python ' + srcDir + 'pyspark_demo.py ',
         #bash_command= 'pwd && ls && ls /tmp',
-        bash_command='export HOME="$(cd ~ && pwd)" && echo $HOME && cd  && spark-submit ' + srcDir  + 'pyspark_demo.py ',
+        bash_command='export HOME="$(cd ~ && pwd)" && export JAVA_HOME=/usr/bin  && export SPARK_HOME=/spark && echo $HOME $JAVA_HOME $SPARK_HOME && cd  && spark-submit ' + srcDir  + 'pyspark_demo.py ',
         dag=dag)
     spark_ml_job= BashOperator(
         task_id='spark-ml_job-run',
