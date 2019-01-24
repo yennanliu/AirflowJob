@@ -16,8 +16,8 @@ import sys
 # https://github.com/danielblazevski/airflow-pyspark-reddit
 
 
-os.environ['SPARK_HOME'] = 'spark'
-sys.path.append(os.path.join(os.environ['SPARK_HOME'], 'bin'))
+#os.environ['SPARK_HOME'] = '/usr/bin'
+#sys.path.append(os.path.join(os.environ['SPARK_HOME'], 'bin'))
 
 #srcDir = os.getcwd() + '/src/'
 #srcDir = '/usr/local/airflow/dags/src/'
@@ -32,8 +32,9 @@ default_args = {
 }
 
 env = {
-    'SPARK_HOME': 'spark',
-    'AIRFLOW_HOME' : '/usr/local/airflow', 
+    'SPARK_HOME': '/usr',
+    'AIRFLOW_HOME' : '/usr/local/airflow',
+    'JAVA_HOME': '/usr/bin' 
 }
 
 
@@ -61,7 +62,7 @@ with DAG('DAG_airflow_spark_job_demo', default_args=default_args, schedule_inter
         task_id='spark-job-run',
         #bash_command= 'pwd' + 'ls' + 'ls tmp ' +  'python ' + srcDir + 'pyspark_demo.py ',
         #bash_command= 'pwd && ls && ls /tmp',
-        bash_command='python ' + srcDir  + 'pyspark_demo.py ',
+        bash_command='export HOME="$(cd ~ && pwd)" && echo $HOME && cd  && spark-submit ' + srcDir  + 'pyspark_demo.py ',
         dag=dag)
     spark_ml_job= BashOperator(
         task_id='spark-ml_job-run',
