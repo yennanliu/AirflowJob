@@ -38,7 +38,7 @@ env = {
 }
 
 
-with DAG('DAG_airflow_spark_job_demo', default_args=default_args, schedule_interval=timedelta(seconds=45)) as dag:
+with DAG('DAG_astro_airflow_spark_job_demo', default_args=default_args, schedule_interval=timedelta(seconds=45)) as dag:
 
     start_dag = DummyOperator(task_id='START_dag')
 
