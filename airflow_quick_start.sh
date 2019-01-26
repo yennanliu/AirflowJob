@@ -13,8 +13,8 @@ export SPARK_HOME=/Users/$USER/spark
 export PATH=$SPARK_HOME/bin:$PATH
 
 # STEP 2) export AIRFLOW_HOME and set language as US.UTF-8 
-export AIRFLOW_HOME=/Users/yennanliu/XBot
-export PYTHONPATH=/Users/yennanliu/XBot
+export AIRFLOW_HOME=/Users/$USER/XBot
+export PYTHONPATH=/Users/$USER/XBot
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
