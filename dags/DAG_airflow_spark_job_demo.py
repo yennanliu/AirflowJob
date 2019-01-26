@@ -5,7 +5,7 @@ from airflow.operators.dummy_operator import DummyOperator
 from datetime import datetime, timedelta
 import os
 
-srcDir = os.getcwd() + '/src/'
+srcDir = os.getcwd() + '/dags/src/'
 
 default_args = {
     'owner': 'airflow',
