@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 import pyspark
 import os
-import urllib
 import sys
 
 from pyspark.sql.functions import *
@@ -10,10 +9,7 @@ from pyspark.ml.classification import *
 from pyspark.ml.evaluation import *
 from pyspark.ml.feature import *
 
-from azureml.logging import get_azureml_logger
 
-# initialize logger
-run_logger = get_azureml_logger() 
 
 # start Spark session
 spark = pyspark.sql.SparkSession.builder.appName('Iris').getOrCreate()
@@ -31,10 +27,15 @@ data =  datasets.load_iris()
 df= pd.DataFrame(data.data)
 df.columns = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width']
 df['class'] = data['target']
-df.to_csv('iris.csv')
+df.to_csv('iris.csv',index=False)
 ###
 
-data = spark.createDataFrame(pd.read_csv('iris.csv', header=None, names=['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']))
+data = spark.createDataFrame(pd.read_csv('iris.csv'))
+data = data.withColumn("sepal-length", data["sepal-length"].cast("float"))
+data = data.withColumn("sepal-width", data["sepal-width"].cast("float"))
+data = data.withColumn("petal-length", data["petal-length"].cast("float"))
+data = data.withColumn("petal-width", data["petal-width"].cast("float"))
+data = data.withColumn("class", data["class"].cast("float"))
 print("First 10 rows of Iris dataset:")
 data.show(10)
 
@@ -59,8 +60,6 @@ reg = 0.01
 if len(sys.argv) > 1:
     reg = float(sys.argv[1])
 
-# log regularization rate
-run_logger.log("Regularization Rate", reg)
 
 # use Logistic Regression to train on the training set
 train, test = data.randomSplit([0.70, 0.30])
@@ -82,6 +81,3 @@ print('Regularization rate is {}'.format(reg))
 print("Accuracy is {}".format(accuracy))
 print('#####################################')
 print()
-
-# log accuracy
-run_logger.log('Accuracy', accuracy)
