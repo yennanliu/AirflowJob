@@ -20,7 +20,7 @@ with DAG('DAG_airflow_spark_ml_job_demo', default_args=default_args, schedule_in
     start_dag = DummyOperator(task_id='START_dag')
     spark_ml_job_1= BashOperator(
         task_id='spark-ml_job1-run',
-        bash_command='spark-submit ' + srcDir + 'Spark_ML_RandomForestClassifier_titanic_demo.py ',
+        bash_command='spark-submit ' + srcDir + 'spark_ML_iris_logisticregression.py ',
         dag=dag)
     spark_ml_job_2= BashOperator(
         task_id='spark-ml_job2-run',
