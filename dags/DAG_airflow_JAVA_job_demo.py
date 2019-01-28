@@ -23,7 +23,7 @@ with DAG('DAG_airflow_JAVA_job_demo', default_args=default_args, schedule_interv
         dag=dag)
     java_job1_run= BashOperator(
         task_id='java_job-run',
-        bash_command='java ' + srcDir + 'HelloWorld ',
+        bash_command='java  -classpath ' + srcDir + ' HelloWorld ',
         dag=dag)
     end_dag = DummyOperator(task_id='END_dag')
 
