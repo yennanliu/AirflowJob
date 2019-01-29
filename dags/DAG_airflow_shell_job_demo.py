@@ -19,11 +19,12 @@ with DAG('DAG_airflow_shell_job_demo', default_args=default_args, schedule_inter
     start_dag = DummyOperator(task_id='START_dag')
     shell_job1= BashOperator(
         task_id='shell_job1',
-        bash_command= 'bash ' +  srcDir + 'list_all_files.sh',
+        # https://stackoverflow.com/questions/42147514/templatenotfound-error-when-running-simple-airflow-bashoperator
+        bash_command= 'bash ' +  srcDir + 'list_all_files.sh ',
         dag=dag)
     shell_job2= BashOperator(
         task_id='shell_job2',
-        bash_command='bash '  + srcDir + 'get_airflow_job_dag.sh',
+        bash_command='bash '  + srcDir + 'get_airflow_job_dag.sh ',
         dag=dag)
     end_dag = DummyOperator(task_id='END_dag')
 
