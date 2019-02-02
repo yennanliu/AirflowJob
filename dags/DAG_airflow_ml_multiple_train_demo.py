@@ -78,13 +78,20 @@ with DAG('DAG_airflow_ml_multiple_train_demo', default_args=default_args, schedu
         dag=dag,
         args=default_args)
 
-    load_data_and_train_job= PythonOperator(
-        task_id='load_data_and_train',
-        python_callable=load_data_and_train,
-        dag=dag,
-        args=default_args)
-
     end_dag = DummyOperator(task_id='END_dag')
 
-    start_dag >> create_data_job >> load_data_and_train_job >> end_dag
+    for i in range(10,20):
+
+        load_data_and_train_job= PythonOperator(
+            task_id='load_data_and_train{}'.format(i),
+            python_callable=load_data_and_train,
+            dag=dag,
+            args=default_args)
+
+        create_data_job >> load_data_and_train_job  
+
+
+    
+
+    start_dag >> create_data_job  >> end_dag
 
