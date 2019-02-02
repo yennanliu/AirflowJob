@@ -50,11 +50,12 @@ def create_data():
     df['class'] = data['target']
     df.to_csv('iris.csv',index=False)
 
-def load_data_and_train():
+def load_data_and_train(max_depth):
     print ('----- STEP 1)  LOAD  DATA')
     df_iris = pd.read_csv('iris.csv')
     print ('----- STEP 2)  TRAIN/TEST SET SPLIT')
     print ('----- STEP 3)  TRAIN')
+    print (' max_depth : ', max_depth) 
     clf_tree = tree.DecisionTreeClassifier()
     clf_tree_ = train(df_iris,clf_tree )
     print ('----- STEP 4)  TEST')
@@ -85,13 +86,12 @@ with DAG('DAG_airflow_ml_multiple_train_demo', default_args=default_args, schedu
         load_data_and_train_job= PythonOperator(
             task_id='load_data_and_train{}'.format(i),
             python_callable=load_data_and_train,
+            op_kwargs={'max_depth': i}, 
             dag=dag,
             args=default_args)
 
         create_data_job >> load_data_and_train_job  >>  end_dag
 
-
-    
 
     start_dag >> create_data_job 
 
