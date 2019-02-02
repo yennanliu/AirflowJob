@@ -88,10 +88,10 @@ with DAG('DAG_airflow_ml_multiple_train_demo', default_args=default_args, schedu
             dag=dag,
             args=default_args)
 
-        create_data_job >> load_data_and_train_job  
+        create_data_job >> load_data_and_train_job  >>  end_dag
 
 
     
 
-    start_dag >> create_data_job  >> end_dag
+    start_dag >> create_data_job 
 
