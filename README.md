@@ -30,7 +30,7 @@
 ```
 
 
-## Quick Start (Airflow)
+### Quick Start (Airflow)
 
 ```bash
 # STEP 0) install env 
@@ -66,7 +66,6 @@ airflow scheduler
 # https://www.astronomer.io/docs/getting-started/
 
 # STEP 0) INSTALL PYTHON ENVIRONMENT
-
 # set up dev environment 
 conda update conda && conda create -n XBot_dev python=3.5 
 # launch dev env 
@@ -78,7 +77,6 @@ pip install -r requirements.txt
 pip install git+https://github.com/timgrossmann/InstaPy.git
 
 # STEP 1)  INSTALL ASTRO AIRFLOW 
-
 # Install go 
 brew install go
 # get astronomer CLI
@@ -91,7 +89,6 @@ cd && cd XBot && astro airflow init
 # TODO : populate crendentials (DB/S3...)
 
 # STEP 2) RUN ASTRO AIRFLOW LOCAL 
-
 # Run the Astro Airflow locally 
 # make sure the Docker daemon APP is alrady runnning 
 astro airflow start
@@ -100,20 +97,18 @@ docker ps
 # check docker log 
 docker logs $(docker ps | grep scheduler | awk '{print $1}')
 
-############## PART 4 : KILL/REBOOST ASTRO AIRFLOW ##############
+# STEP 3): KILL/REBOOST ASTRO AIRFLOW 
 # kill airflow 
 astro airflow kill
 # re-boost airflow 
 astro airflow init
 astro airflow start
 
-# STEP 3): INTEGRATE WITH SLACK 
-
+# STEP 4): INTEGRATE WITH SLACK 
 # set up Slack bot app 
 # https://api.slack.com/apps
 # test with setting 
 curl -X POST -H 'Content-type: application/json' --data '{"text":" 12345"}' https://hooks.slack.com/services/<ur_workspace_id>/<ur_channel_id>/<ur_access_token>
-
 ```
 
 ## Docker Deploy 
