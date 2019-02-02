@@ -12,6 +12,7 @@ try:
     from sklearn.model_selection import train_test_split
     from sklearn.metrics import confusion_matrix
     from sklearn.model_selection import cross_val_score
+    from sklearn.metrics import classification_report
 except:
     print (' NO ML packages')
 
@@ -23,8 +24,8 @@ srcDir = os.getcwd() + '/dags/src/'
 # OP ---------------------------------------  
 def train(df,model):
     df_ = df.copy()
-    X = df_.iloc[:,1:5]
-    y = df_.iloc[:,6:7]
+    X = df_.iloc[:,1:4]
+    y = df_.iloc[:,-1:]
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
     clf_ = model.fit(X_train, y_train)
     print ('test score :', model.score(X_test,y_test) )
@@ -57,9 +58,6 @@ def load_data_and_train():
     clf_tree = tree.DecisionTreeClassifier()
     clf_tree_ = train(df_iris,clf_tree )
     print ('----- STEP 4)  TEST')
-
-
-
 
 
 default_args = {
