@@ -56,7 +56,7 @@ def load_data_and_train(max_depth):
     print ('----- STEP 2)  TRAIN/TEST SET SPLIT')
     print ('----- STEP 3)  TRAIN')
     print (' max_depth : ', max_depth) 
-    clf_tree = tree.DecisionTreeClassifier()
+    clf_tree = tree.DecisionTreeClassifier(max_depth=max_depth)
     clf_tree_ = train(df_iris,clf_tree )
     print ('----- STEP 4)  TEST')
 
