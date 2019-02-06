@@ -51,10 +51,13 @@ args = {
 
 
 with DAG(dag_id='DAG_IG_bot_job_demo', default_args=args) as dag:
+
 	start_dag = DummyOperator(task_id='START_dag')
+
 	IG_bot_job = PythonOperator(
 	task_id='IG_bot_job',
 	python_callable=IG_demo_job)
+
 	end_dag = DummyOperator(task_id='END_dag')
 
 	start_dag >> IG_bot_job >> end_dag
