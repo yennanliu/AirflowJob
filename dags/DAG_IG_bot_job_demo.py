@@ -4,9 +4,7 @@ from airflow.operators.bash_operator import BashOperator
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator 
 from datetime import datetime, timedelta
-
-
-
+import os 
 
 # help func 
 def get_country_name(country_name_rates):
@@ -20,8 +18,10 @@ def IG_demo_job():
 	from instapy import InstaPy
 	from instapy.util import smart_run
 	# login credentials
-	insta_username = insta_username
-	insta_password = insta_password
+	#insta_username = insta_username
+	#insta_password = insta_password
+	insta_username = os.environ['insta_username']
+	insta_password = os.environ['insta_password']
 	# get an InstaPy session!
 	# set headless_browser=True to run InstaPy in the background
 	session = InstaPy(username=insta_username,
@@ -39,7 +39,6 @@ def IG_demo_job():
 	    session.set_dont_like(["pizza", "#store"])
 	    # actions
 	    session.like_by_tags(["natgeo"], amount=10)
-
 
 # airflow DAG 
 args = {
