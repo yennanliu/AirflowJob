@@ -32,15 +32,16 @@
 
 ### Quick Start (Astronomer Airflow)
 
+- There is an issue when run Spark job via Astro airflow, feel free to leave a [ PR ](https://github.com/yennanliu/XBot/pulls)for that 🙏
 [Astro Airflow quick start ](https://github.com/yennanliu/XBot/blob/master/doc/astro_airflow_quick_start.md)
 
-## Docker Deploy 
+### Docker Deploy 
 - dev 
 
-## CI/CD 
+### CI/CD 
 - Travis CI 
 
-## Development 
+### Development 
 - dev 
 
 
