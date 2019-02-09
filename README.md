@@ -32,7 +32,7 @@
 
 ### Quick Start (Astronomer Airflow)
 
-[Astro Airflow quick start ](https://github.com/yennanliu/XBot/blob/master/doc/astro_airflow_quick_start.md%20)
+[Astro Airflow quick start ](https://github.com/yennanliu/XBot/blob/master/doc/astro_airflow_quick_start.md)
 
 ## Docker Deploy 
 - dev 
