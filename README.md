@@ -26,12 +26,14 @@
 
 ```
 
-### Quick Start (Airflow)
 
+### Prerequisites
+- Copy [.creds.yml.dev](https://github.com/yennanliu/XBot/blob/master/.creds.yml.dev) as `.creds.yml` file then input your credential in it.
+
+### Quick Start (Airflow)
 - [Airflow quick start](https://github.com/yennanliu/XBot/blob/master/doc/airflow_quick_start.md)
 
 ### Quick Start (Astronomer Airflow)
-
 - There is an issue when run Spark job via Astro airflow, feel free to leave a [ PR ](https://github.com/yennanliu/XBot/pulls)for that 🙏
 - [Astro Airflow quick start ](https://github.com/yennanliu/XBot/blob/master/doc/astro_airflow_quick_start.md)
 
@@ -43,5 +45,3 @@
 
 ### Development 
 - dev 
-
-
