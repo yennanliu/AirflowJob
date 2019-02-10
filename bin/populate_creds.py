@@ -14,7 +14,7 @@ with open('../.creds.yml') as f:
     config = yaml.load(f)
 
 
-SLACK_API_TOKEN = config['slack_api']['token']
+SLACK_API_TOKEN = config['slack']['token']
 
 def get_slack_api_secret():
 	print (' slack_api_token = ', slack_api_token)
