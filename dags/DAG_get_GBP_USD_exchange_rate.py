@@ -20,7 +20,7 @@ from plugins.hooks.slack_hook import SlackHook
 # -------------- config --------------
 # get exchangerates :  GBP -> USD 
 url='https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=GBP&symbols=USD'
-SLACK_API_TOKEN = SlackHook().get_conn()
+#SLACK_API_TOKEN = SlackHook().get_conn()
 # -------------- config --------------
 
 
