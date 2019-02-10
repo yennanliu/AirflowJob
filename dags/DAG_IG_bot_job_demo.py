@@ -5,23 +5,13 @@ from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator 
 from datetime import datetime, timedelta
 import os 
+from plugins.hooks.insta_hook import InstagramHook
 
 # help func 
-def get_country_name(country_name_rates):
-    return list(country_name_rates.keys())[0]
-
-def get_country_rate(country_name_rates): 
-    return float((list(country_name_rates.values()))[0])
-
-
 def IG_demo_job():
 	from instapy import InstaPy
 	from instapy.util import smart_run
-	# login credentials
-	#insta_username = insta_username
-	#insta_password = insta_password
-	insta_username = os.environ['insta_username']
-	insta_password = os.environ['insta_password']
+	insta_username, insta_password = InstagramHook().get_conn()
 	# get an InstaPy session!
 	# set headless_browser=True to run InstaPy in the background
 	session = InstaPy(username=insta_username,
