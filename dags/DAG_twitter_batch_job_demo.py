@@ -14,19 +14,19 @@ import os
 #----------------------------------------------------
 # config 
 
-try:
-    access_token, access_token_secret, consumer_key, consumer_secret = get_twitter_api_secret() 
-    APP_KEY=consumer_key
-    APP_SECRET=consumer_secret
+# try:
+#     access_token, access_token_secret, consumer_key, consumer_secret = get_twitter_api_secret() 
+#     APP_KEY=consumer_key
+#     APP_SECRET=consumer_secret
 
-except:
-    access_token = os.environ['access_token']
-    access_token_secret = os.environ['access_token_secret']
-    consumer_key = os.environ['consumer_key']
-    consumer_secret = os.environ['consumer_secret'] 
-else:
-    print (' No API key , please set up  via : ')
-    print (' https://developer.twitter.com/en/apps')
+# except:
+#     access_token = os.environ['access_token']
+#     access_token_secret = os.environ['access_token_secret']
+#     consumer_key = os.environ['consumer_key']
+#     consumer_secret = os.environ['consumer_secret'] 
+# else:
+#     print (' No API key , please set up  via : ')
+#     print (' https://developer.twitter.com/en/apps')
 
 #----------------------------------------------------
 # OP 
@@ -71,7 +71,7 @@ dag = DAG('DAG_twitter_batch_job_demo', default_args=args)
 
 get_twitter_stream_data_task = PythonOperator(
     task_id='get_twitter_stream_data_part',
-    python_callable = 
+    python_callable = get_twitter_data,
     dag=dag
     )
 save_to_db_task = PythonOperator(
