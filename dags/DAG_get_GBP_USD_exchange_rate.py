@@ -14,13 +14,13 @@ import json
 # UDF 
 #sys.path.append("..") 
 #os.system("export PYTHONPATH=$(pwd)")
-from dags.utility.load_creds import *
+#from dags.utility.load_creds import *
 
 
 # -------------- config --------------
 # get exchangerates :  GBP -> USD 
 url='https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=GBP&symbols=USD'
-SLACK_API_TOKEN = get_slack_api_secret()
+#SLACK_API_TOKEN = get_slack_api_secret()
 # -------------- config --------------
 
 
