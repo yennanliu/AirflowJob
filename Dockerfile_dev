@@ -4,5 +4,12 @@ ENV HOME /app
 WORKDIR $HOME
 COPY . $HOME
 
+# RUN chown -R user: $HOME
+# RUN curl -o- https://cli.astronomer.io/install.sh | bash
+# ENV PATH="$PATH:$HOME/.astro/"
+# ENV AIRFLOW_HOME=$HOME
+# ENV AIRFLOW_DAGS=$HOME/dags
+# ENV AIRFLOW__CORE__SQL_ALCHEMY_CONN=sqlite:////$HOME/airflow.db
+
 RUN /bin/bash -c "source install_pyspark.sh"
 
