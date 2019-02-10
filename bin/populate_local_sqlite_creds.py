@@ -13,6 +13,9 @@ with open('.creds.yml') as f:
     config = yaml.load(f)
 
 SLACK_API_TOKEN = config['slack']['token']
+INSTAGRAM_API_KEY = config['instagram']['key']
+INSTAGRAM_API_SECRET = config['instagram']['secret']
+
 
 def get_slack_api_secret():
 	print (' slack_api_token = ', slack_api_token)
@@ -37,6 +40,17 @@ def insert_slack_default_conn(cursor):
             )
     cursor.execute(sql)
 
+def insert_instagram_default_conn(cursor):
+    sql = """
+        INSERT INTO connection  
+        ( conn_id, conn_type, host, schema, login, password, port, extra, is_encrypted, is_extra_encrypted)
+        VALUES('instagram_default', 'instagram', '', '', '{DEFAULT_INSTAGRAM_API_KEY}', '{DEFAULT_INSTAGRAM_API_SECRET}', '', '', 0, 0);
+        """.format(
+            DEFAULT_INSTAGRAM_API_KEY=INSTAGRAM_API_KEY,
+            DEFAULT_INSTAGRAM_API_SECRET=INSTAGRAM_API_SECRET
+            )
+    cursor.execute(sql)
+
 def main(db_file):
     # config 
     conn = sqlite3.connect(db_file)
@@ -49,6 +63,10 @@ def main(db_file):
 
         print('Inserting slack credentials')
         insert_slack_default_conn(cursor)
+        conn.commit()
+
+        print('Inserting instagram credentials')
+        insert_instagram_default_conn(cursor)
         conn.commit()
 
     except Exception as e:
