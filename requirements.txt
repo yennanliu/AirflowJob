@@ -1,2 +1,3 @@
 instapy
 tweepy
+apache-airflow[postgres,mysql]
