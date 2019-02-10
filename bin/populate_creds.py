@@ -1,3 +1,9 @@
+
+
+#################################################################
+# POPULATE CREDS TOO LOCAL POSTGRESQL (AIRFLOW BACKEND)
+#################################################################
+
 # python 3 
 import yaml
 import os
