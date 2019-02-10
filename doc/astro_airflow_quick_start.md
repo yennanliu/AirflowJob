@@ -40,14 +40,17 @@ docker ps
 # check docker log 
 docker logs $(docker ps | grep scheduler | awk '{print $1}')
 
-# STEP 3): KILL/REBOOST ASTRO AIRFLOW 
+# STEP 3) populate creds 
+python bin/populate_creds.py
+
+# STEP 4): KILL/REBOOST ASTRO AIRFLOW 
 # kill airflow 
 astro airflow kill
 # re-boost airflow 
 astro airflow init
 astro airflow start
 
-# STEP 4): INTEGRATE WITH SLACK 
+# STEP 5): INTEGRATE WITH SLACK 
 # set up Slack bot app 
 # https://api.slack.com/apps
 # test with setting 
