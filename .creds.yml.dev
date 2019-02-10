@@ -1,0 +1,12 @@
+# get the slack API key : https://api.slack.com/apps
+
+slack:
+  token: <slack_token>
+
+twitter:
+  key: <twitter_consumer_key>
+  secret: <twitter_consumer_secret>
+
+instagram:
+  key: <insta_username>
+  secret: <insta_password>
