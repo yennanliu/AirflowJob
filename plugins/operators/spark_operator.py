@@ -1,6 +1,6 @@
 from airflow.operators.bash_operator import BashOperator
 from airflow.models import BaseOperator
-from airflow.hooks import spark_submit_hook
+from airflow.contrib.hooks.spark_submit_hook import SparkSubmitHook
 import os
 
 class SPARKOperator(BaseOperator):
@@ -11,7 +11,7 @@ class SPARKOperator(BaseOperator):
         self.dag_folder = dag_folder
 
     def execute(self, context):
-        spark_conn = spark_submit_hook()
+        spark_conn = SparkSubmitHook()
 
         BashOperator(
             task_id=context.get('task').task_id,
