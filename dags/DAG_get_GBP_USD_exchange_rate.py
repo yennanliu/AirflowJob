@@ -20,7 +20,6 @@ from plugins.hooks.slack_hook import SlackHook
 # -------------- config --------------
 # get exchangerates :  GBP -> USD 
 url='https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=GBP&symbols=USD'
-#SLACK_API_TOKEN = SlackHook().get_conn()
 # -------------- config --------------
 
 
@@ -38,6 +37,7 @@ def fix_to_json(bytes_data):
 
 
 def get_exchange_rates_data(**kwargs):
+	SLACK_API_TOKEN = SlackHook().get_conn()
 	content = urllib.request.urlopen(url).read()
 	content_ = fix_to_json(content)
 	df=pd.read_json(content)
@@ -66,6 +66,7 @@ def get_exchange_rates_data(**kwargs):
 
 
 def post_to_slack(**kwargs):
+	SLACK_API_TOKEN = SlackHook().get_conn()
 	msg= kwargs['ti'].xcom_pull(key=None,task_ids='get_exchange_rates_data')
 	print ('msg :' , msg)
 	slack_attachments = [
