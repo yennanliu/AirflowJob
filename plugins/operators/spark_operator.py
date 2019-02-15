@@ -5,10 +5,11 @@ import os
 
 class SPARKOperator(BaseOperator):
 
-    def __init__(self, command, dag_folder, env_vars='', *args, **kwargs):
+    def __init__(self, command, dag_folder, script_folder, env_vars='', *args, **kwargs):
         super(SPARKOperator, self).__init__(*args, **kwargs)
         self.command = command
         self.dag_folder = dag_folder
+        self.script_folder = script_folder
 
     def execute(self, context):
         spark_conn = SparkSubmitHook()
@@ -19,15 +20,12 @@ class SPARKOperator(BaseOperator):
         ).execute(context)
 
     def _bash_operator_command(self):
-        if get_env() == 'prod':
-            profile_dir = '/usr/local/airflow/dags/{dag_folder}'.format(dag_folder=self.dag_folder)
-        else:
-            profile_dir = '/usr/local/airflow/dags/{dag_folder}'.format(dag_folder=self.dag_folder)
-
-        command = """cd /usr/local/airflow/dags/{dag_folder} && {command} 
+        profile_dir = '/usr/local/airflow/dags/{dag_folder}'.format(dag_folder=self.dag_folder)
+        command = """cd /usr/local/airflow/dags/{dag_folder} && {command}  && {script_folder}
         """.format(
+            dag_folder=self.dag_folder,
             command=self.command,
-            dag_folder=self.dag_folder
+            script_folder=self.script_folder
         )
 
         return command
