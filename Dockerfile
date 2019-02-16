@@ -17,7 +17,7 @@ COPY . $HOME
 
 # Install Java
 RUN apk update && apk add git
-RUN apk add openjdk-8-jdk
+RUN apk add openjdk8
 
 # Install Spark 
 RUN /bin/bash -c "source install_pyspark.sh"
