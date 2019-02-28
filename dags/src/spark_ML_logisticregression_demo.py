@@ -39,10 +39,10 @@ def main():
 	cvModel = crossval.fit(lr_train)
 	prediction = cvModel.transform(lr_test)
 	prediction.show()
-	# evaluate with best model : to fix 
-	#prediction_and_labels = cvModel.bestModel.evaluate(lr_test)
-	#prediction_and_labels.predictions.show()
-
+	modelEvaluator=BinaryClassificationEvaluator()
+	modelEvaluator.evaluate(cvModel.transform(lr_test))
+	my_final_cv_roc = modelEvaluator.evaluate(cvModel.transform(lr_test))
+	print (my_final_cv_roc)
 
 
 if __name__ == '__main__':
