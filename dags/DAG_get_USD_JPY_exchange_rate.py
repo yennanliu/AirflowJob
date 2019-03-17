@@ -10,7 +10,6 @@ import urllib
 # -------------- config --------------
 # get exchangerates :  USD -> JPY 
 url='https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=USD&symbols=JPY'
-
 # -------------- config --------------
 
 # help func 
@@ -27,7 +26,6 @@ def get_exchange_rates_data():
 	df['country_rate']= df['rates'].map(get_country_rate)
 	print (' API response (df):', df.head())
 	return df 
-
 
 # airflow DAG 
 args = {
