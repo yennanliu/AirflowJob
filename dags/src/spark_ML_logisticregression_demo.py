@@ -1,5 +1,4 @@
 # LogisticRegression spark demo 
-
 from pyspark.sql import SparkSession
 from pyspark.ml.classification import LogisticRegression
 from pyspark.ml.evaluation import (BinaryClassificationEvaluator,MulticlassClassificationEvaluator)
@@ -43,7 +42,6 @@ def main():
 	modelEvaluator.evaluate(cvModel.transform(lr_test))
 	my_final_cv_roc = modelEvaluator.evaluate(cvModel.transform(lr_test))
 	print (my_final_cv_roc)
-
 
 if __name__ == '__main__':
 	main()

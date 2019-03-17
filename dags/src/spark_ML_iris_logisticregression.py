@@ -3,13 +3,10 @@ import pandas as pd
 import pyspark
 import os
 import sys
-
 from pyspark.sql.functions import *
 from pyspark.ml.classification import *
 from pyspark.ml.evaluation import *
 from pyspark.ml.feature import *
-
-
 
 # start Spark session
 spark = pyspark.sql.SparkSession.builder.appName('Iris').getOrCreate()
@@ -30,7 +27,6 @@ def main():
 	df['class'] = data['target']
 	df.to_csv('iris.csv',index=False)
 	###
-
 	data = spark.createDataFrame(pd.read_csv('iris.csv'))
 	data = data.withColumn("sepal-length", data["sepal-length"].cast("float"))
 	data = data.withColumn("sepal-width", data["sepal-width"].cast("float"))
@@ -39,7 +35,6 @@ def main():
 	data = data.withColumn("class", data["class"].cast("float"))
 	print("First 10 rows of Iris dataset:")
 	data.show(10)
-
 	# vectorize all numerical columns into a single feature column
 	feature_cols = data.columns[:-1]
 	assembler = pyspark.ml.feature.VectorAssembler(inputCols=feature_cols, outputCol='features')
@@ -54,28 +49,22 @@ def main():
 	data = data.select(['features', 'label'])
 	print("Reading for machine learning")
 	data.show(10)
-
 	# change regularization rate and you will likely get a different accuracy.
 	reg = 0.01
 	# load regularization rate from argument if present
 	if len(sys.argv) > 1:
 	    reg = float(sys.argv[1])
-
-
 	# use Logistic Regression to train on the training set
 	train, test = data.randomSplit([0.70, 0.30])
 	lr = pyspark.ml.classification.LogisticRegression(regParam=reg)
 	model = lr.fit(train)
-
 	# predict on the test set
 	prediction = model.transform(test)
 	print("Prediction")
 	prediction.show(10)
-
 	# evaluate the accuracy of the model using the test set
 	evaluator = pyspark.ml.evaluation.MulticlassClassificationEvaluator(metricName='accuracy')
 	accuracy = evaluator.evaluate(prediction)
-
 	print()
 	print('#####################################')
 	print('Regularization rate is {}'.format(reg))

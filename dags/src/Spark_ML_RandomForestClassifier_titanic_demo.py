@@ -1,7 +1,5 @@
 # python 3 
 # credit :  https://creativedata.atlassian.net/wiki/spaces/SAP/pages/83237142/Pyspark+-+Tutorial+based+on+Titanic+Dataset
-
-
 # Import packages
 import time
 import pyspark
@@ -11,9 +9,7 @@ from numpy import array
 from pyspark.mllib.regression import LabeledPoint
 from pyspark import SparkContext, SparkConf
 
-
 srcDir = os.getcwd() + '/dags/data/'
-
 # configue Spark env
 os.environ["HADOOP_USER_NAME"] = "hdfs"
 os.environ["PYTHON_VERSION"] = "3.5.2"
@@ -21,20 +17,17 @@ conf = pyspark.SparkConf()
 sc = pyspark.SparkContext(conf=conf)
 conf.getAll()
 
-
 # Data preprocessing
 def sexTransformMapper(elem):
     '''Function which transform "male" into 1 and else things into 0
     - elem : string
     - return : vector
     '''
-     
     if elem == 'male' :
         return [0]
     else :
         return [1]
         
-
 def main():
     # Reading from the hdfs, removing the header
     # read the titanic train, test csv here 
@@ -93,9 +86,5 @@ def main():
 
     print ('=====================================================')
 
-
-
 if __name__ == '__main__':
     main()
-
-

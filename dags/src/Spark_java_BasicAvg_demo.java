@@ -1,12 +1,8 @@
-/**
- * Illustrates how to compute an average using aggregate in Java
- */
-//package com.oreilly.learningsparkexamples.java;
-
-
 /*
 
-credit 
+* Illustrates how to compute an average using aggregate in Java
+
+* credit 
 
 https://github.com/databricks/learning-spark/blob/master/src/main/java/com/oreilly/learningsparkexamples/java/BasicAvg.java
 
@@ -15,13 +11,10 @@ https://github.com/databricks/learning-spark/blob/master/src/main/java/com/oreil
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
-
 import org.apache.commons.lang.StringUtils;
-
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.Function2;
-
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 

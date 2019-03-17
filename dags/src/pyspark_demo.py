@@ -7,9 +7,7 @@ from operator import add
 conf = SparkConf().setAppName("spark dev")
 sc = SparkContext(conf=conf)
 sqlContext = SQLContext(sc)
-
 sc
-
 # create RDD
 intRDD = sc.parallelize([6,7,1,2,0])
 intRDD2 = sc.parallelize(["apple", "car", "pan"])

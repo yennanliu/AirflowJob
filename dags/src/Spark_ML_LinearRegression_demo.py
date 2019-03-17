@@ -1,6 +1,5 @@
 # python 3 
 # https://docs.databricks.com/getting-started/spark/machine-learning.html
-
 # OP
 from sklearn.datasets import load_boston
 from sklearn.preprocessing import scale
@@ -13,7 +12,6 @@ from pyspark.ml.feature import  VectorIndexer
 from pyspark.ml.linalg import Vectors
 from pyspark.ml.regression import LinearRegression
 from pyspark.ml.evaluation import RegressionEvaluator
-
 
 conf = SparkConf().setAppName("building a LINEAR MODEL")
 sc = SparkContext(conf=conf)
@@ -31,8 +29,6 @@ def main():
 
 	# save to csv 
 	df.to_csv('boston.csv',index=False)
-
-
 	# load data with spark way
 	data = sc.textFile('boston.csv').map(lambda line: line.split(","))
 	headers = data.first()
@@ -105,4 +101,3 @@ def main():
 
 if __name__ == '__main__':
 	main()
-

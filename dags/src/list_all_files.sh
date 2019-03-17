@@ -1,4 +1,3 @@
-
 #!/bin/sh
 
 #for file in $1/* ;  do     # root directory
