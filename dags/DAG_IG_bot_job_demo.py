@@ -1,4 +1,3 @@
-
 from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.dummy_operator import DummyOperator
@@ -38,7 +37,6 @@ args = {
     'retries': 1,
     'retry_delay': timedelta(minutes=1),
     }
-
 
 with DAG(dag_id='DAG_IG_bot_job_demo', default_args=args) as dag:
 

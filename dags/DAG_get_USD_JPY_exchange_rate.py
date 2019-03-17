@@ -7,13 +7,11 @@ from datetime import datetime, timedelta
 import pandas as pd 
 import urllib 
 
-
 # -------------- config --------------
 # get exchangerates :  USD -> JPY 
 url='https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=USD&symbols=JPY'
 
 # -------------- config --------------
-
 
 # help func 
 def get_country_name(country_name_rates):
@@ -40,7 +38,6 @@ args = {
     'retry_delay': timedelta(minutes=1),
     }
 
-
 with DAG(dag_id='DAG_get_USD_JPY_exchange_rate', default_args=args) as dag:
 	start_dag = DummyOperator(task_id='START_dag')
 	get_api_data_step = PythonOperator(
@@ -49,6 +46,3 @@ with DAG(dag_id='DAG_get_USD_JPY_exchange_rate', default_args=args) as dag:
 	end_dag = DummyOperator(task_id='END_dag')
 
 	start_dag >> get_api_data_step >> end_dag
-
-
-

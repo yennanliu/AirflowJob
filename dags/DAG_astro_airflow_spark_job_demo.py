@@ -16,7 +16,6 @@ import sys
 # https://blog.insightdatascience.com/scheduling-spark-jobs-with-airflow-4c66f3144660
 # https://github.com/danielblazevski/airflow-pyspark-reddit
 
-
 os.environ['SPARK_HOME'] = '/usr/local/airflow/'
 sys.path.append(os.environ['SPARK_HOME'])
 
@@ -37,7 +36,6 @@ default_args = {
 #     #'AIRFLOW_HOME' : '/usr/local/airflow/dags/'
 #     #'JAVA_HOME': '/usr/bin' 
 # }
-
 
 with DAG('DAG_astro_airflow_spark_job_demo', default_args=default_args, schedule_interval=timedelta(seconds=45)) as dag:
 

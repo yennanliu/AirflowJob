@@ -16,10 +16,7 @@ try:
 except:
     print (' NO ML packages')
 
-
-
 srcDir = os.getcwd() + '/dags/src/'
-
 
 # OP ---------------------------------------  
 def train(df,model):
@@ -41,8 +38,6 @@ def train(df,model):
     return clf_
 # OP ---------------------------------------  
 
-
-
 def create_data():
     data =  datasets.load_iris()
     df= pd.DataFrame(data.data)
@@ -59,7 +54,6 @@ def load_data_and_train(max_depth):
     clf_tree = tree.DecisionTreeClassifier(max_depth=max_depth)
     clf_tree_ = train(df_iris,clf_tree )
     print ('----- STEP 4)  TEST')
-
 
 default_args = {
     'owner': 'airflow',
@@ -92,6 +86,4 @@ with DAG('DAG_airflow_ml_multiple_train_demo', default_args=default_args, schedu
 
         create_data_job >> load_data_and_train_job  >>  end_dag
 
-
     start_dag >> create_data_job 
-

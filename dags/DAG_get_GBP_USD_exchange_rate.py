@@ -10,18 +10,15 @@ import urllib
 import sys, os
 import json 
 from plugins.hooks.slack_hook import SlackHook
-
 # UDF 
 #sys.path.append("..") 
 #os.system("export PYTHONPATH=$(pwd)")
 #from dags.utility.load_creds import *
 
-
 # -------------- config --------------
 # get exchangerates :  GBP -> USD 
 url='https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=GBP&symbols=USD'
 # -------------- config --------------
-
 
 # help func 
 def get_country_name(country_name_rates):
@@ -34,7 +31,6 @@ def fix_to_json(bytes_data):
 	# fix bytes data to json make it's OK to parse in python 
 	# https://stackoverflow.com/questions/40059654/python-convert-a-bytes-array-into-json-format
 	return json.loads(bytes_data.decode('utf8').replace("'", '"'))
-
 
 def get_exchange_rates_data(**kwargs):
 	SLACK_API_TOKEN = SlackHook().get_conn()
@@ -63,8 +59,6 @@ def get_exchange_rates_data(**kwargs):
 	provide_context=True)
 	return slack_post.execute(content='123')
 
-
-
 def post_to_slack(**kwargs):
 	SLACK_API_TOKEN = SlackHook().get_conn()
 	msg= kwargs['ti'].xcom_pull(key=None,task_ids='get_exchange_rates_data')
@@ -86,7 +80,6 @@ def post_to_slack(**kwargs):
 	provide_context=True)
 	return slack_post.execute(content='123')
 
-
 # airflow DAG 
 args = {
     'owner': 'yen',
@@ -96,8 +89,6 @@ args = {
     'retry_delay': timedelta(minutes=1),
     'provide_context':True
     }
-
-
 
 with DAG(dag_id='DAG_get_GBP_USD_exchange_rate', 
 		 default_args=args) as dag:
@@ -111,7 +102,6 @@ with DAG(dag_id='DAG_get_GBP_USD_exchange_rate',
 	dag=dag,
 	args=args)
 
-
 	post_to_slack_step = PythonOperator(
 	task_id='post_to_slack_step',
 	python_callable=post_to_slack,
@@ -122,6 +112,3 @@ with DAG(dag_id='DAG_get_GBP_USD_exchange_rate',
 	end_dag = DummyOperator(task_id='END_dag')
 
 	start_dag >> get_api_data_step  >> post_to_slack_step >> end_dag
-
-
-
