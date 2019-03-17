@@ -1,20 +1,17 @@
 
-
-#################################################################
-# POPULATE CREDS TOO LOCAL POSTGRESQL (AIRFLOW BACKEND)
-#################################################################
-
 # python 3 
 import yaml
 import os
 import psycopg2
 
-
 with open('../.creds.yml') as f:
     config = yaml.load(f)
 
-
 SLACK_API_TOKEN = config['slack']['token']
+
+#################################################################
+# POPULATE CREDS TOO LOCAL POSTGRESQL (AIRFLOW BACKEND)
+#################################################################
 
 def get_slack_api_secret():
 	print (' slack_api_token = ', slack_api_token)
@@ -56,8 +53,5 @@ def main():
         print ('Insert credentials failed.. ')
         print (e)
 
-
 if __name__ == '__main__':
     main()
-
-

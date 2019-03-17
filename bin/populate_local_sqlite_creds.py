@@ -1,13 +1,7 @@
-
-#################################################################
-# POPULATE CREDS TOO LOCAL SQLITE (AIRFLOW BACKEND)
-#################################################################
-
 # python 3 
 import yaml
 import os
 import sqlite3
-
 
 with open('.creds.yml') as f:
     config = yaml.load(f)
@@ -16,6 +10,9 @@ SLACK_API_TOKEN = config['slack']['token']
 INSTAGRAM_API_KEY = config['instagram']['key']
 INSTAGRAM_API_SECRET = config['instagram']['secret']
 
+#################################################################
+# POPULATE CREDS TOO LOCAL SQLITE (AIRFLOW BACKEND)
+#################################################################
 
 def get_slack_api_secret():
 	print (' slack_api_token = ', slack_api_token)
