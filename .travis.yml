@@ -3,6 +3,10 @@ sudo: required
 services:
   - docker
 
+branches:
+  only:
+  - master
+   
 script:
   - echo ' -----------------  BUILD PART 1 ----------------- '
   - echo REGISTRY_USER = $REGISTRY_USER && echo REGISTRY_PASS = $REGISTRY_PASS
