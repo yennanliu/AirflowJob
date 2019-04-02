@@ -1,9 +1,9 @@
 sudo: required
-      
+
 services:
   - docker
 
-build:
+script:
   - echo ' -----------------  BUILD PART 1 ----------------- '
   - echo REGISTRY_USER = $REGISTRY_USER && echo REGISTRY_PASS = $REGISTRY_PASS
   - echo 'docker bulid...' && docker build -f Dockerfile . -t Xbot_env_instance
