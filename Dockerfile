@@ -23,7 +23,7 @@ RUN apk add openjdk8
 RUN /bin/bash -c "source install_pyspark.sh"
 
 # Install scikit-learn
-RUN pip install --user scikit-learn
+RUN pip install --upgrade scikit-learn
 
 # Expose port 8000
 EXPOSE 8080
