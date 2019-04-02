@@ -11,7 +11,7 @@ script:
   - echo ' -----------------  BUILD PART 1 ----------------- '
   - echo REGISTRY_USER = $REGISTRY_USER && echo REGISTRY_PASS = $REGISTRY_PASS
   - echo 'docker bulid...' && docker build . -t xbot_env_instance
-  - docker run -it Xbot_env_instance echo 'docker test 123'
+  - docker run -it xbot_env_instance echo 'docker test 123'
   - container_id="` docker ps -a | awk 'FNR == 2 {print $1}'`" && echo container_id = $container_id && image_id="` docker ps -a | awk 'FNR == 2 {print $2}'`" && echo image_id = $image_id 
   - docker ps -a 
   - docker images
@@ -22,6 +22,6 @@ before_deploy:
 deploy:
   provider: script
   # docker commit and push 
-  script: (echo '--- DEPLOY PART 1 ---' && docker commit $container_id yennanliu/Xbot_env_instance:V1 && docker push yennanliu/Xbot_env_instance:V1) 
+  script: (echo '--- DEPLOY PART 1 ---' && docker commit $container_id yennanliu/xbot_env_instance:V1 && docker push yennanliu/xbot_env_instance:V1) 
   on:
     branch: master
