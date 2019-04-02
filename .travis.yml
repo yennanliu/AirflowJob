@@ -6,11 +6,11 @@ services:
 branches:
   only:
   - master
-   
+
 script:
   - echo ' -----------------  BUILD PART 1 ----------------- '
   - echo REGISTRY_USER = $REGISTRY_USER && echo REGISTRY_PASS = $REGISTRY_PASS
-  - echo 'docker bulid...' && docker build -f Dockerfile . -t Xbot_env_instance
+  - echo 'docker bulid...' && docker build . -t xbot_env_instance
   - docker run -it Xbot_env_instance echo 'docker test 123'
   - container_id="` docker ps -a | awk 'FNR == 2 {print $1}'`" && echo container_id = $container_id && image_id="` docker ps -a | awk 'FNR == 2 {print $2}'`" && echo image_id = $image_id 
   - docker ps -a 
