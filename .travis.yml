@@ -1,2 +1,23 @@
+sudo: required
+      
+services:
+  - docker
+
+build:
+  - echo ' -----------------  BUILD PART 1 ----------------- '
+  - echo REGISTRY_USER = $REGISTRY_USER && echo REGISTRY_PASS = $REGISTRY_PASS
+  - echo 'docker bulid...' && docker build -f Dockerfile . -t Xbot_env_instance
+  - docker run -it Xbot_env_instance echo 'docker test 123'
+  - container_id="` docker ps -a | awk 'FNR == 2 {print $1}'`" && echo container_id = $container_id && image_id="` docker ps -a | awk 'FNR == 2 {print $2}'`" && echo image_id = $image_id 
+  - docker ps -a 
+  - docker images
+
 before_deploy:
-  - echo "travis hello world"
+  - echo "$REGISTRY_PASS" | docker login -u "$REGISTRY_USER" --password-stdin && echo "docker login OK" || echo "docker login failed"
+
+deploy:
+  provider: script
+  # docker commit and push 
+  script: (echo '--- DEPLOY PART 1 ---' && docker commit $container_id yennanliu/Xbot_env_instance:V1 && docker push yennanliu/Xbot_env_instance:V1) 
+  on:
+    branch: master
