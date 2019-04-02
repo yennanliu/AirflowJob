@@ -21,8 +21,11 @@ def main(db_file):
                           'task_instance',
                           'task_fail',
                           'dag_stats',
+                          'dag_run',
                           'import_error',
-                          'known_event']
+                          'known_event',
+                          'variable',
+                          'xcom']
     # config 
     conn = sqlite3.connect(db_file)
     for table in to_truncate_tables:
