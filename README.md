@@ -1,6 +1,9 @@
 # XBot
 > A POC project that automate various jobs by Airflow. The jobs including Spark python/Java, ML, IG bot, and customized daily routines.
 
+[![Build Status](https://travis-ci.org/yennanliu/XBot.svg?branch=master)
+[![PRs](https://github.com/yennanliu/XBot/pulls)
+
 ## Tech 
 - Programming : Python 3, Java, Shell 
 - Framework   : Airflow, Spark, InstaPy, scikit-learn, Keras 
@@ -38,7 +41,7 @@
 - [Astro Airflow quick start ](https://github.com/yennanliu/XBot/blob/master/doc/astro_airflow_quick_start.md)
 
 ### Docker Deploy 
-- dev 
+- https://cloud.docker.com/u/yennanliu/repository/docker/yennanliu/xbot_env_instance 
 
 ### CI/CD 
 - Travis CI (Legacy Services Integration)
