@@ -2,7 +2,7 @@
 > A POC project that automate various jobs by Airflow. The jobs including Spark python/Java, ML, IG bot, and customized daily routines.
 
 [![Build Status](https://travis-ci.org/yennanliu/XBot.svg?branch=master)
-[![PRs](https://github.com/yennanliu/XBot/pulls)
+[![PRs](https://img.shields.io/badge/PRs-welcome-6574cd.svg)](https://github.com/yennanliu/XBot/pulls)
 
 ## Tech 
 - Programming : Python 3, Java, Shell 
