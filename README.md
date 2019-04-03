@@ -42,6 +42,7 @@
 
 ### CI/CD 
 - Travis CI (Legacy Services Integration)
+- https://travis-ci.org/yennanliu/XBot/builds
 
 ### Development 
 - dev 
