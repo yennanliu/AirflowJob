@@ -39,7 +39,7 @@ tar -xzf $my_route/spark-2.4.1-bin-hadoop2.7.tgz
 cd ~
 cp -R $my_route/spark-2.4.1-bin-hadoop2.7 $my_route/spark
 # install python pyspark library 
-pip install pyspark
+pip install --upgrade pip && pip install pyspark && pip freeze list 
 
 echo '>>>>>>>>>>>> STEP 3)  Declare env parameter'
 # declare env parameter
