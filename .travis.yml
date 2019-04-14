@@ -11,7 +11,8 @@ script:
   - echo ' -----------------  BUILD PART 1 ----------------- '
   - echo REGISTRY_USER = $REGISTRY_USER && echo REGISTRY_PASS = $REGISTRY_PASS
   - echo 'docker bulid...' && docker build . -t xbot_env_instance
-  - docker run -it xbot_env_instance echo 'docker test 123'
+  - docker run -it xbot_env_instance echo "docker test 123"
+  - docker run -it xbot_env_instance /bin/bash -c "cd dags && spark-submit src/pyspark_demo.py"
   - container_id="` docker ps -a | awk 'FNR == 2 {print $1}'`" && echo container_id = $container_id && image_id="` docker ps -a | awk 'FNR == 2 {print $2}'`" && echo image_id = $image_id 
   - docker ps -a 
   - docker images
