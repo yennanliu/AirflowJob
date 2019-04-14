@@ -11,5 +11,7 @@ sc
 # create RDD
 intRDD = sc.parallelize([6,7,1,2,0])
 intRDD2 = sc.parallelize(["apple", "car", "pan"])
+print ('*'*70)
 print (intRDD.collect())
 print (intRDD2.collect())
+print ('*'*70)
