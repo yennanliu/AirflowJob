@@ -23,14 +23,12 @@ COMMENT1
 my_route=$(pwd)
 echo $my_route
 
-# set dev env 
 echo '>>>> STEP 1)  set dev env'
 #yes Y | conda create -n pyspark_dev python=3.5
 #source activate pyspark_dev
 
-# install pyspark 
-# download here  : http://spark.apache.org/downloads.html
 echo '>>>> STEP 2)  install pyspark'
+# download here  : http://spark.apache.org/downloads.html
 cd ~
 wget --quiet http://apache.mirror.anlx.net/spark/spark-2.4.1/spark-2.4.1-bin-hadoop2.7.tgz
 echo 'location :'
@@ -48,10 +46,6 @@ pip install pyspark
 echo '>>>> STEP 3)  declare env parameter'
 export SPARK_HOME=$my_route/spark
 export PATH=$SPARK_HOME/bin:$PATH
-
-echo '>>>> STEP 4)  install jupyter notebook'
-# install jupyter notebook 
-pip install jupyter
 
 echo '######################## SPARK INSTALL SUCCESS ########################'
 echo 'PLEASE RUN it via cona env : pyspark_dev '
