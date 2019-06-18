@@ -1,4 +1,4 @@
-# XBot
+# XJob
 
 [![Build Status](https://travis-ci.org/yennanliu/XBot.svg?branch=master)](https://travis-ci.org/yennanliu/XBot)
 [![PRs](https://img.shields.io/badge/PRs-welcome-6574cd.svg)](https://github.com/yennanliu/XBot/pulls)
@@ -30,14 +30,13 @@
 
 ```
 
-
 ### Prerequisites
 - Copy [.creds.yml.dev](https://github.com/yennanliu/XBot/blob/master/.creds.yml.dev) as `.creds.yml` file then input your credential in it.
 
-### Quick Start (Airflow)
+### Quick Start ( via `Airflow`)
 - [Airflow quick start](https://github.com/yennanliu/XBot/blob/master/doc/airflow_quick_start.md)
 
-### Quick Start (Astronomer Airflow)
+### Quick Start (via `Astronomer Airflow`)
 - There is an issue when run Spark job via Astro airflow, feel free to leave a [ PR ](https://github.com/yennanliu/XBot/pulls)for that 🙏
 - [Astro Airflow quick start ](https://github.com/yennanliu/XBot/blob/master/doc/astro_airflow_quick_start.md)
 
