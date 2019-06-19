@@ -30,14 +30,14 @@ echo '>>>>>>>>>>>> STEP 1)  Set up dev env'
 echo '>>>>>>>>>>>> STEP 2)  Install pyspark'
 # download here  : http://spark.apache.org/downloads.html
 cd ~
-wget --quiet http://apache.mirror.anlx.net/spark/spark-2.4.1/spark-2.4.1-bin-hadoop2.7.tgz
+wget --quiet http://apache.mirror.anlx.net/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz
 echo 'location :'
 pwd 
 echo 'file :'
 ls 
-tar -xzf $my_route/spark-2.4.1-bin-hadoop2.7.tgz
+tar -xzf $my_route/spark-2.4.3-bin-hadoop2.7.tgz
 cd ~
-cp -R $my_route/spark-2.4.1-bin-hadoop2.7 $my_route/spark
+cp -R $my_route/spark-2.4.3-bin-hadoop2.7 $my_route/spark
 # install python pyspark library 
 pip install --upgrade pip && pip install pyspark && pip freeze list 
 
