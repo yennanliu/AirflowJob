@@ -1,7 +1,7 @@
 # XJob
 
-[![Build Status](https://travis-ci.org/yennanliu/XBot.svg?branch=master)](https://travis-ci.org/yennanliu/XBot)
-[![PRs](https://img.shields.io/badge/PRs-welcome-6574cd.svg)](https://github.com/yennanliu/XBot/pulls)
+[![Build Status](https://travis-ci.org/yennanliu/Xjob.svg?branch=master)](https://travis-ci.org/yennanliu/Xjob)
+[![PRs](https://img.shields.io/badge/PRs-welcome-6574cd.svg)](https://github.com/yennanliu/Xjob/pulls)
 
 > A POC project that automate various jobs by Airflow. The jobs including Spark python/Java, ML, IG bot, and customized daily routines.
 
@@ -31,21 +31,21 @@
 ```
 
 ### Prerequisites
-- Copy [.creds.yml.dev](https://github.com/yennanliu/XBot/blob/master/.creds.yml.dev) as `.creds.yml` file then input your credential in it.
+- Copy [.creds.yml.dev](https://github.com/yennanliu/Xjob/blob/master/.creds.yml.dev) as `.creds.yml` file then input your credential in it.
 
 ### Quick Start ( via `Airflow`)
-- [Airflow quick start](https://github.com/yennanliu/XBot/blob/master/doc/airflow_quick_start.md)
+- [Airflow quick start](https://github.com/yennanliu/Xjob/blob/master/doc/airflow_quick_start.md)
 
 ### Quick Start (via `Astronomer Airflow`)
-- There is an issue when run Spark job via Astro airflow, feel free to leave a [ PR ](https://github.com/yennanliu/XBot/pulls)for that 🙏
-- [Astro Airflow quick start ](https://github.com/yennanliu/XBot/blob/master/doc/astro_airflow_quick_start.md)
+- There is an issue when run Spark job via Astro airflow, feel free to leave a [ PR ](https://github.com/yennanliu/Xjob/pulls)for that 🙏
+- [Astro Airflow quick start ](https://github.com/yennanliu/Xjob/blob/master/doc/astro_airflow_quick_start.md)
 
 ### Docker Deploy 
-- https://cloud.docker.com/u/yennanliu/repository/docker/yennanliu/xbot_env_instance 
+- https://cloud.docker.com/u/yennanliu/repository/docker/yennanliu/xjob_env_instance 
 
 ### CI/CD 
 - Travis CI (Legacy Services Integration)
-- https://travis-ci.org/yennanliu/XBot/builds
+- https://travis-ci.org/yennanliu/Xjob/builds
 
 ### Development 
 - dev 
