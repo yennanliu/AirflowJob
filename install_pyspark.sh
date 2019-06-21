@@ -6,7 +6,7 @@
 #################################################################
 <<COMMENT1
 #-------------------
-Process : 
+* Process : 
 1) download spark bin-hadoop main file  (make sure you have Java 8 or newer version) 
 2) unzip its and move to the ops location (default as /Users/yennanliu/spark )
 3) copy all files under /Users/yennanliu/spark-2.3.0-bin-hadoop2.7  to /Users/yennanliu/spark
@@ -16,14 +16,22 @@ Process :
 Ref :
 JAVA JDK can be downloaded here 
 http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
+* Launching:
+$bash /Users/$USER/Xjob/install_pyspark.sh 
 #-------------------
 COMMENT1
 
+# exit running the script if any of the following failed (simple command exits with a nonzero exit value) 
+set -e
+
 # get ops route 
 my_route=$(pwd)
+echo 'my_route :'
 echo $my_route
 
 echo '>>>>>>>>>>>> STEP 1)  Set up dev env'
+echo 'please change to your dev environment (conda/virtualenv) before running this program, or the spark will be installed in the current environment'
 #yes Y | conda create -n pyspark_dev python=3.5
 #source activate pyspark_dev
 
@@ -47,6 +55,6 @@ export SPARK_HOME=$my_route/spark
 export PATH=$SPARK_HOME/bin:$PATH
 
 echo '######################## SPARK INSTALL SUCCESS ########################'
-echo 'PLEASE RUN it via cona env : pyspark_dev '
-echo 'source activate pyspark_dev && export SPARK_HOME=/Users/$USER/spark && export PATH=$SPARK_HOME/bin:$PATH && pyspark'
+echo 'PLEASE RUN SPARK VIA BELOW COMMANDS '
+echo 'export SPARK_HOME=/Users/$USER/spark && export PATH=$SPARK_HOME/bin:$PATH && pyspark'
 echo '######################## SPARK INSTALL SUCCESS ########################'
