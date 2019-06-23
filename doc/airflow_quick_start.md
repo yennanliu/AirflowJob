@@ -6,7 +6,7 @@
 
 ```bash
 # STEP 0) install env 
-git clone https://github.com/yennanliu/XBot && cd XBot
+git clone https://github.com/yennanliu/XJob && cd XJob
 bash install_pyspark.sh 
 
 # STEP 1) run the dev env and export SPARK_HOME
@@ -15,8 +15,8 @@ export SPARK_HOME=/Users/$USER/spark
 export PATH=$SPARK_HOME/bin:$PATH
 
 # STEP 2) export AIRFLOW_HOME and set language as US.UTF-8 
-export AIRFLOW_HOME=/Users/$USER/XBot
-export PYTHONPATH=/Users/$USER/XBot
+export AIRFLOW_HOME=/Users/$USER/XJob
+export PYTHONPATH=/Users/$USER/XJob
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 

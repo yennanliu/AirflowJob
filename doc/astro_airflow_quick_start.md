@@ -10,9 +10,9 @@
 
 # STEP 0) INSTALL PYTHON ENVIRONMENT
 # set up dev environment 
-conda update conda && conda create -n XBot_dev python=3.5 
+conda update conda && conda create -n XJob_dev python=3.5 
 # launch dev env 
-source activate XBot_dev
+source activate XJob_dev
 # install needed packages (python)
 pip install -r requirements.txt
 # install InstaPy
@@ -27,7 +27,7 @@ curl -sL https://install.astronomer.io | sudo bash
 # verify install success 
 astro 
 # init airflow 
-cd && cd XBot && astro airflow init 
+cd && cd XJob && astro airflow init 
 
 # TODO : populate crendentials (DB/S3...)
 
