@@ -9,7 +9,6 @@ class MultiplyBy5Operator(BaseOperator):
         super(MultiplyBy5Operator, self).__init__(*args, **kwargs)
 
     def execute(self, context):
-        log.info('operator_param: %s', self.operator_param)
         return (self.operator_param * 5)
 
 class MultiplyBy5Plugin(AirflowPlugin):
