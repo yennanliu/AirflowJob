@@ -4,8 +4,8 @@
 #################################################################
 
 # declare env 
-export AIRFLOW_HOME=/Users/$USER/XJob
-export PYTHONPATH=/Users/$USER/XJob
+export AIRFLOW_HOME=/
+export PYTHONPATH=/
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
@@ -13,7 +13,7 @@ export LANG=en_US.UTF-8
 airflow initdb
 
 # print file structure 
-ls && pwd &&  echo $AIRFLOW_HOME && echo $PYTHONPATH
+ls && pwd &&  echo 'AIRFLOW_HOME :' $AIRFLOW_HOME && echo 'PYTHONPATH :' $PYTHONPATH
 
 #lunch test 
 pytest 
