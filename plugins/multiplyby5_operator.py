@@ -1,10 +1,6 @@
-import logging
-
 from airflow.models import BaseOperator
 from airflow.plugins_manager import AirflowPlugin
 from airflow.utils.decorators import apply_defaults
-
-log = logging.getLogger(__name__)
 
 class MultiplyBy5Operator(BaseOperator):
     @apply_defaults
@@ -16,6 +12,6 @@ class MultiplyBy5Operator(BaseOperator):
         log.info('operator_param: %s', self.operator_param)
         return (self.operator_param * 5)
 
-
 class MultiplyBy5Plugin(AirflowPlugin):
     name = "multiplyby5_plugin"
+    operators = [MultiplyBy5Operator]
