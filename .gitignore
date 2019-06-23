@@ -3,5 +3,6 @@
 *__pycache__
 *.DS_Store
 *.ipynb
+airflow.cfg
 metastore_db
 spark-warehouse
