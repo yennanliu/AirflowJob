@@ -1,4 +1,8 @@
 instapy
 tweepy
 pytest
-apache-airflow[postgres,mysql]
+slackclient
+apache-airflow
+celery
+redis
+#apache-airflow[postgres,mysql]
