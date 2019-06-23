@@ -18,10 +18,10 @@ class TestDagIntegrity(unittest.TestCase):
 
     def test_alert_email_present(self):
 
-        for dag_id, dag in self.dagbag.dags.iteritems():
-            emails = dag.default_args.get('email', [])
+        for dag_id, dag in self.dagbag.dags.items():
+            emails = dag.default_args.get('email', ['airflow@example.com'])
             msg = 'Alert email not set for DAG {id}'.format(id=dag_id)
-            self.assertIn('<your_alert_email>', emails, msg)
+            self.assertIn('airflow@example.com', emails, msg)
 
 
 suite = unittest.TestLoader().loadTestsFromTestCase(TestDagIntegrity)
