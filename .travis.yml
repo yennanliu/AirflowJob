@@ -13,7 +13,7 @@ script:
   - echo 'docker bulid...' && docker build . -t xjob_env_instance
   - echo ' -----------------  TEST PART 1 ----------------- '
   - echo 'docker test' && docker run -it xjob_env_instance echo "docker test 123"
-  - echo 'airflow test' && docker run -it xjob_env_instance /bin/bash -c "bash tests/launch_test.sh"
+  #- echo 'airflow test' && docker run -it xjob_env_instance /bin/bash -c "bash tests/launch_test.sh"
   - docker run -it xjob_env_instance /bin/bash -c "cd dags && spark-submit src/pyspark_demo.py"
   - container_id="` docker ps -a | awk 'FNR == 2 {print $1}'`" && echo container_id = $container_id && image_id="` docker ps -a | awk 'FNR == 2 {print $2}'`" && echo image_id = $image_id 
   - docker ps -a 
