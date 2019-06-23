@@ -23,6 +23,5 @@ class TestDagIntegrity(unittest.TestCase):
             msg = 'Alert email not set for DAG {id}'.format(id=dag_id)
             self.assertIn('airflow@example.com', emails, msg)
 
-
 suite = unittest.TestLoader().loadTestsFromTestCase(TestDagIntegrity)
 unittest.TextTestRunner(verbosity=3).run(suite)
