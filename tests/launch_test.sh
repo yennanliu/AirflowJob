@@ -13,4 +13,4 @@ export LANG=en_US.UTF-8
 airflow initdb
 
 #lunch test 
-pytest -m test 
+pytest 
