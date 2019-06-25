@@ -6,9 +6,11 @@
 > A POC project that automate various jobs by Airflow. The jobs including Spark python/Java, ML, IG bot, and customized daily routines.
 
 ## Tech 
+```bash 
 - Programming : Python 3, Java, Shell 
 - Framework   : Airflow, Spark, InstaPy, scikit-learn, Keras 
 - dev-op      : Docker, Travis  
+```
 
 ## File structure
 
@@ -30,6 +32,8 @@
 
 ```
 
+## Installation 
+
 ### Prerequisites
 - Copy [.creds.yml.dev](https://github.com/yennanliu/Xjob/blob/master/.creds.yml.dev) as `.creds.yml` file then input your credential in it.
 
@@ -40,12 +44,10 @@
 - There is an issue when run Spark job via Astro airflow, feel free to leave a [ PR ](https://github.com/yennanliu/Xjob/pulls)for that 🙏
 - [Astro Airflow quick start ](https://github.com/yennanliu/Xjob/blob/master/doc/astro_airflow_quick_start.md)
 
-### Docker Deploy 
-- https://cloud.docker.com/u/yennanliu/repository/docker/yennanliu/xjob_env_instance 
+## Development 
+
+### Docker image 
+- Docker hub : https://cloud.docker.com/u/yennanliu/repository/docker/yennanliu/xjob_env_instance 
 
 ### CI/CD 
-- Travis CI (Legacy Services Integration)
-- https://travis-ci.org/yennanliu/Xjob/builds
-
-### Development 
-- dev 
+- Travis CI (Legacy Services Integration):https://travis-ci.org/yennanliu/Xjob/builds
