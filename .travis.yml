@@ -7,10 +7,12 @@ branches:
   only:
   - master
 
-script:
+before_install:
   - echo ' -----------------  BUILD PART 1 ----------------- '
   - echo REGISTRY_USER = $REGISTRY_USER && echo REGISTRY_PASS = $REGISTRY_PASS
   - echo 'docker bulid...' && docker build . -t xjob_env_instance
+
+script:
   - echo ' -----------------  TEST PART 1 ----------------- '
   - echo 'docker test' && docker run -it xjob_env_instance echo "docker test 123"
   #- echo 'airflow test' && docker run -it xjob_env_instance /bin/bash -c "bash tests/launch_test.sh"
