@@ -13,7 +13,6 @@
 ```
 
 ## File structure
-
 ```bash
 # .
 # ├── Dockerfile             : Dockerfile define astro airflow env 
@@ -34,20 +33,20 @@
 
 ## Installation 
 
-### Prerequisites
+### STEP 1) Prerequisites
 - Copy [.creds.yml.dev](https://github.com/yennanliu/Xjob/blob/master/.creds.yml.dev) as `.creds.yml` file then input your credential in it.
 
-### Quick Start ( via `Airflow`)
+### STEP 2') Quick Start ( via `Airflow`)
 - [Airflow quick start](https://github.com/yennanliu/Xjob/blob/master/doc/airflow_quick_start.md)
 
-### Quick Start (via `Astronomer Airflow`)
+### STEP 2'') Quick Start (via `Astronomer Airflow`)
 - There is an issue when run Spark job via Astro airflow, feel free to leave a [ PR ](https://github.com/yennanliu/Xjob/pulls)for that 🙏
 - [Astro Airflow quick start ](https://github.com/yennanliu/Xjob/blob/master/doc/astro_airflow_quick_start.md)
 
 ## Development 
 
 ### Docker image 
-- Docker hub : https://cloud.docker.com/u/yennanliu/repository/docker/yennanliu/xjob_env_instance 
+- [Docker hub](https://cloud.docker.com/u/yennanliu/repository/docker/yennanliu/xjob_env_instance)
 
 ### CI/CD 
-- Travis CI (Legacy Services Integration):https://travis-ci.org/yennanliu/Xjob/builds
+- [Travis](https://travis-ci.org/yennanliu/Xjob/builds)
