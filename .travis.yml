@@ -16,7 +16,7 @@ script:
   - echo ' -----------------  TEST PART 1 ----------------- '
   - echo 'docker test' && docker run -it xjob_env_instance echo "docker test 123"
   #- echo 'airflow test' && docker run -it xjob_env_instance /bin/bash -c "bash tests/launch_test.sh"
-  - docker run -it xjob_env_instance /bin/bash -c "cd dags && spark-submit src/pyspark_demo.py"
+  - echo 'spark test' && docker run -it xjob_env_instance /bin/bash -c "cd dags && spark-submit src/pyspark_demo.py"
   - container_id="` docker ps -a | awk 'FNR == 2 {print $1}'`" && echo container_id = $container_id && image_id="` docker ps -a | awk 'FNR == 2 {print $2}'`" && echo image_id = $image_id 
   - docker ps -a 
   - docker images
@@ -26,7 +26,6 @@ before_deploy:
 
 deploy:
   provider: script
-  # docker commit and push 
-  script: (echo '--- DEPLOY PART 1 ---' && docker commit $container_id yennanliu/xjob_env_instance:V1 && docker push yennanliu/xjob_env_instance:V1) 
+  script: (echo ----------------- DEPLOY PART 1----------------- && docker commit $container_id yennanliu/xjob_env_instance:V1 && docker push yennanliu/xjob_env_instance:V1) 
   on:
     branch: master
