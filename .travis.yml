@@ -14,16 +14,16 @@ before_install:
 
 script:
   - echo ' -----------------  TEST PART 1 ----------------- '
-  - echo 'docker test' && docker run -it xjob_env_instance echo "docker test 123"
-  - echo 'airflow test' && docker run -it xjob_env_instance /bin/bash -c "bash tests/launch_test.sh"
-  - echo 'spark test' && docker run -it xjob_env_instance /bin/bash -c "cd dags && spark-submit src/pyspark_demo.py"
+  - echo 'DOCKER TEST' && docker run -it xjob_env_instance echo "docker test 123"
+  - echo 'AIRFLOW TEST' && docker run -it xjob_env_instance /bin/bash -c "bash tests/launch_test.sh"
+  - echo 'SPARK TEST' && docker run -it xjob_env_instance /bin/bash -c "cd dags && spark-submit src/pyspark_demo.py"
   - container_id="` docker ps -a | awk 'FNR == 2 {print $1}'`" && echo container_id = $container_id && image_id="` docker ps -a | awk 'FNR == 2 {print $2}'`" && echo image_id = $image_id 
   - docker ps -a 
   - docker images
 
 before_deploy:
   - echo "$REGISTRY_PASS" | docker login -u "$REGISTRY_USER" --password-stdin && echo "docker login OK" || echo "docker login failed"
-
+  
 deploy:
   provider: script
   script: (echo ----------------- DEPLOY PART 1----------------- && docker commit $container_id yennanliu/xjob_env_instance:V1 && docker push yennanliu/xjob_env_instance:V1) 
