@@ -17,4 +17,4 @@ ls && pwd &&  echo 'AIRFLOW_HOME :' $AIRFLOW_HOME && echo 'PYTHONPATH :' $PYTHON
 
 #lunch test 
 #pytest 
-python dag_validate_test.py 
+(echo 'run test via python.. ' && python tests/dag_validate_test.py) || (echo 'run test via pytest.. ' && pytest tests/dag_validate_test.py) 
