@@ -5,12 +5,16 @@
 
 
 ```bash
-# STEP 0) install env 
+# STEP 0) INSTALL ENVIRONMENT
+conda update conda && conda create -n XJob_env python=3.5 
+# launch dev env 
+source activate XJob_dev
+# clone the repo
 git clone https://github.com/yennanliu/XJob && cd XJob
 bash install_pyspark.sh 
 
 # STEP 1) run the dev env and export SPARK_HOME
-source activate pyspark_
+source activate XJob_env
 export SPARK_HOME=/Users/$USER/spark
 export PATH=$SPARK_HOME/bin:$PATH
 
