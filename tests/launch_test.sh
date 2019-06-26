@@ -16,4 +16,5 @@ airflow initdb
 ls && pwd &&  echo 'AIRFLOW_HOME :' $AIRFLOW_HOME && echo 'PYTHONPATH :' $PYTHONPATH
 
 #lunch test 
-pytest 
+#pytest 
+python dag_validate_test.py 
