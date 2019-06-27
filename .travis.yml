@@ -3,6 +3,12 @@ sudo: required
 services:
   - docker
 
+matrix:
+    include:
+        - python: 3.4
+        - python: 3.5
+        - python: 3.6
+        
 branches:
   only:
   - master
