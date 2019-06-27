@@ -3,7 +3,10 @@
 [![Build Status](https://travis-ci.org/yennanliu/Xjob.svg?branch=master)](https://travis-ci.org/yennanliu/Xjob)
 [![PRs](https://img.shields.io/badge/PRs-welcome-6574cd.svg)](https://github.com/yennanliu/Xjob/pulls)
 
-> A POC project that automate various jobs by Airflow. The jobs including Spark python/Java, ML, IG bot, and customized daily routines.
+> As part of the "Daas (Data as a service) repo", we demo the POC project about  how to build a ETL system running for data engineering/science purposes via Airflow. Here are the main parts of the project:  1) ETL env setting up 2) ETL code base development 3) ETL code test 4) intergration with 3rd party API (Instagram, Slack..)and dev-op tools (Travis CI) 
+
+* Daas (Data as a service) repo :  [data infra build](https://github.com/yennanliu/data_infra_repo) -> [ETL build](https://github.com/yennanliu/XJob) -> [DS application demo](https://github.com/yennanliu/analysis)
+
 
 ## Tech 
 ```bash 
