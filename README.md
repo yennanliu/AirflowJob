@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/yennanliu/Xjob.svg?branch=master)](https://travis-ci.org/yennanliu/Xjob)
 [![PRs](https://img.shields.io/badge/PRs-welcome-6574cd.svg)](https://github.com/yennanliu/Xjob/pulls)
 
-> As `ETL build` part part of the "Daas (Data as a service) repo", we demo the POC project about how to build a ETL system running for data engineering/science purposes via Airflow. Main focus of this project:  1) ETL/ELT (extract, transform, load) env setting up 2) ETL code base development 3) ETL code test 4) intergration with 3rd party API (Instagram, Slack..)and dev-op tools (Travis CI) 
+> As `ETL build` part of the "Daas (Data as a service) repo", we demo about how to build a ETL system running for data engineering/science via Airflow in this POC project. Main focus:  1) ETL/ELT (extract, transform, load) env setting up 2) ETL code base development 3) ETL code test 4) intergration with 3rd party API (Instagram, Slack..)and dev-op tools (Travis CI) 
 
 * Daas (Data as a service) repo :  [Data infra build](https://github.com/yennanliu/data_infra_repo) -> [ETL build](https://github.com/yennanliu/XJob) -> [DS application demo](https://github.com/yennanliu/analysis)
 
