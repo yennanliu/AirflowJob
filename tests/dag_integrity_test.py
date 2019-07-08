@@ -1,5 +1,9 @@
 """Test integrity of dags."""
 
+#################################################################
+# MODIFY FROM danielvdende/data-testing-with-airflow  
+#################################################################
+
 import importlib
 import os
 
@@ -7,10 +11,10 @@ import pytest
 from airflow import models as af_models
 
 DAG_PATH = os.path.join(
-    os.path.dirname(__file__), '..', 'dags'
+    os.getcwd(), 'dags'
 )
 
-DAG_FILES = [f for f in os.listdir(DAG_PATH) if f.endswith('airflowfile.py')]
+DAG_FILES = [f for f in os.listdir(DAG_PATH) if f.startswith('DAG')]
 
 
 @pytest.mark.parametrize('dag_file', DAG_FILES)
