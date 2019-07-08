@@ -5,4 +5,5 @@ slackclient
 apache-airflow
 celery
 redis
+coverage
 #apache-airflow[postgres,mysql]
