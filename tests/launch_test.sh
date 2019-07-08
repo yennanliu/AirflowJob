@@ -4,8 +4,8 @@
 #################################################################
 
 # declare env 
-export AIRFLOW_HOME=/
-export PYTHONPATH=/
+export AIRFLOW_HOME=$(pwd)
+export PYTHONPATH=$(pwd)
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
