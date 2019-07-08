@@ -17,4 +17,4 @@ ls && pwd &&  echo 'AIRFLOW_HOME :' $AIRFLOW_HOME && echo 'PYTHONPATH :' $PYTHON
 
 #lunch test 
 #pytest 
-(echo 'run test via pytest.. ' && pytest tests/) || (echo 'run test via python.. ' && python tests/dag_validate_test.py) 
+(echo 'run test via pytest.. ' && pytest -v tests/) || (echo 'run test via python.. ' && for i in $(echo $(ls tests/*_test.py) | cut -d' ' -f1-) ; do echo $i ; python $i ; done ) 
