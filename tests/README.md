@@ -16,3 +16,5 @@
 ### Ref
 - https://blog.usejournal.com/testing-in-airflow-part-1-dag-validation-tests-dag-definition-tests-and-unit-tests-2aa94970570c
 - https://medium.com/wbaa/datas-inferno-7-circles-of-data-testing-hell-with-airflow-cef4adff58d8
+- https://github.com/chandulal/airflow-testing
+- https://github.com/danielvdende/data-testing-with-airflow
