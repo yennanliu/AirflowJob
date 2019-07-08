@@ -3,13 +3,13 @@ from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator 
-from airflow.operators.slack_operator import SlackAPIPostOperator
+#from airflow.operators.slack_operator import SlackAPIPostOperator
 from datetime import datetime, timedelta
 import pandas as pd 
 import urllib 
 import sys, os
 import json 
-from plugins.hooks.slack_hook import SlackHook
+#from plugins.hooks.slack_hook import SlackHook
 # UDF 
 #sys.path.append("..") 
 #os.system("export PYTHONPATH=$(pwd)")
@@ -53,7 +53,7 @@ def get_exchange_rates_data(**kwargs):
 	task_id = 'post_to_slack_step',
 	channel= 'slack-bot-dev1',
 	token = SLACK_API_TOKEN,
-	username = 'Xbot', 
+	username = 'XJob', 
 	text = content_, 
 	attachments=slack_attachments,
 	provide_context=True)
@@ -74,7 +74,7 @@ def post_to_slack(**kwargs):
 	task_id = 'post_to_slack_step',
 	channel= 'slack-bot-dev1',
 	token = SLACK_API_TOKEN,
-	username = 'Xbot', 
+	username = 'XJob', 
 	text = kwargs['ti'].xcom_pull(key='UK_USD_rates',task_ids='get_exchange_rates_data'),
 	attachments=slack_attachments,
 	provide_context=True)

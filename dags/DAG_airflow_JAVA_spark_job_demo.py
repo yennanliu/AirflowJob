@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 import os
 
 srcDir = os.getcwd() + '/dags/src/'
-CLASSPATH = "/Users/yennanliu/XBot/dags/src:.:/Users/$USER/spark/jars/*"
+CLASSPATH = "/Users/yennanliu/XJob/dags/src:.:/Users/$USER/spark/jars/*"
 
 default_args = {
     'owner': 'airflow',
