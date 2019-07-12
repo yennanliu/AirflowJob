@@ -48,6 +48,18 @@ def insert_instagram_default_conn(cursor):
             )
     cursor.execute(sql)
 
+
+
+def insert_spark_conn(cursor):
+    sql = """INSERT INTO connection
+        (conn_id, conn_type, host, schema, login, password, port, extra, is_encrypted, is_extra_encrypted)
+        VALUES('spark_default', '', '', '', '', '', '', '{{"SPARK_HOME":"{SPARK_HOME}"}}', 0, 0);
+        """.format(
+            SPARK_HOME='/Users/' + os.getlogin() + '/spark'
+    )
+
+    cursor.execute(sql)
+
 def main(db_file):
     # config 
     conn = sqlite3.connect(db_file)
@@ -64,6 +76,10 @@ def main(db_file):
 
         print('Inserting instagram credentials')
         insert_instagram_default_conn(cursor)
+        conn.commit()
+
+        print('Inserting spark config')
+        insert_spark_conn(cursor)
         conn.commit()
 
     except Exception as e:
