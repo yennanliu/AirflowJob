@@ -40,6 +40,16 @@ def insert_datadog_default_conn(cursor):
 
     cursor.execute(sql)
 
+def insert_spark_conn(cursor):
+    sql = """INSERT INTO public."connection"
+        (conn_id, conn_type, host, "schema", login, password, port, extra, is_encrypted, is_extra_encrypted)
+        VALUES('spark_default', '', '', '', '', '', '', '{{"SPARK_HOME":"{SPARK_HOME}"}}', false, false);
+        """.format(
+            SPARK_HOME='/Users/' + os.getlogin() + '/spark'
+    )
+
+    cursor.execute(sql)
+
 def main():
     # config 
     conn_string = "host='localhost' dbname='postgres' user='postgres' password='postgres'"
@@ -49,6 +59,13 @@ def main():
         cursor = conn.cursor()
         print('Inserting slack credentials')
         insert_slack_default_conn(cursor)
+
+        print('Inserting datadog credentials')
+        insert_datadog_default_conn(cursor)
+
+        print('Inserting spark config')
+        insert_spark_conn(cursor)
+        
     except Exception as e:
         print ('Insert credentials failed.. ')
         print (e)
