@@ -73,7 +73,7 @@ default_args = {
 }
 
 dag = DAG(
-    'DAG_spark_sql_enrich_demo_{}'.format(ENVIRONMENT),
+    'DAG_spark_transaction_test_demo{}'.format(ENVIRONMENT),
     schedule_interval=None,
     default_args=default_args,
     catchup=True
