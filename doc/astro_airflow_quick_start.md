@@ -56,3 +56,8 @@ astro airflow start
 # test with setting 
 curl -X POST -H 'Content-type: application/json' --data '{"text":" 12345"}' https://hooks.slack.com/services/<ur_workspace_id>/<ur_channel_id>/<ur_access_token>
 ```
+
+### ref 
+- Set up spark confing in Airflow UI 
+	- https://stackoverflow.com/questions/50532799/unable-to-execute-spark-job-using-sparksubmitoperator/50541640#50541640
+	
