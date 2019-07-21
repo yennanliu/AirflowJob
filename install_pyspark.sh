@@ -57,8 +57,7 @@ install_spark(){
 test_spark_install(){
   which pyspark
   which spark-submit 
-  if  spark-submit dags/src/pyspark_demo.py then 
-  then 
+  if  spark-submit dags/src/pyspark_demo.py ;  then  
   echo ' ################################### SPARK INSTALL SUCCESS ###################################'
   echo 'PLEASE RUN SPARK VIA BELOW COMMANDS '
   echo 'export SPARK_HOME=/Users/$USER/spark && export PATH=$SPARK_HOME/bin:$PATH && pyspark'
