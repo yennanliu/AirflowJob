@@ -22,19 +22,18 @@ $bash /Users/$USER/Xjob/install_pyspark.sh
 #-------------------
 COMMENT1
 
+install_spark(){
+
 # exit running the script if any of the following failed (simple command exits with a nonzero exit value) 
 set -e
-
 # get ops route 
 my_route=$(pwd)
 echo 'my_route :'
 echo $my_route
-
 echo '>>>>>>>>>>>> STEP 1)  Set up dev env'
 echo 'please change to your dev environment (conda/virtualenv) before running this program, or the spark will be installed in the current environment'
 #yes Y | conda create -n pyspark_dev python=3.5
 #source activate pyspark_dev
-
 echo '>>>>>>>>>>>> STEP 2)  Install pyspark'
 # download here  : http://spark.apache.org/downloads.html
 cd ~
@@ -54,7 +53,26 @@ echo '>>>>>>>>>>>> STEP 3)  Declare env parameter'
 export SPARK_HOME=$my_route/spark
 export PATH=$SPARK_HOME/bin:$PATH
 
-echo '######################## SPARK INSTALL SUCCESS ########################'
-echo 'PLEASE RUN SPARK VIA BELOW COMMANDS '
-echo 'export SPARK_HOME=/Users/$USER/spark && export PATH=$SPARK_HOME/bin:$PATH && pyspark'
-echo '######################## SPARK INSTALL SUCCESS ########################'
+}
+
+test_spark_install(){
+
+which pyspark
+which spark-submit 
+
+if  spark-submit dags/src/pyspark_demo.py then 
+
+then 
+	echo '######################## SPARK INSTALL SUCCESS ########################'
+	echo 'PLEASE RUN SPARK VIA BELOW COMMANDS '
+	echo 'export SPARK_HOME=/Users/$USER/spark && export PATH=$SPARK_HOME/bin:$PATH && pyspark'
+	echo '######################## SPARK INSTALL SUCCESS ########################'
+else 
+	echo 'spark NOT install successfully '
+fi 
+}
+
+
+install_spark
+test_spark_install
+
