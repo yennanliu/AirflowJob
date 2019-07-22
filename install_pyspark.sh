@@ -24,6 +24,19 @@ $bash /Users/$USER/Xjob/install_pyspark.sh
 #------------------------------------------------------------------------------------------------------------------
 COMMENT1
 
+install_java(){
+  if [ -n `which java` ]; then 
+  echo 'java install OK'
+  which java
+  java -version  
+  else 
+  echo 'No java installed, please install it for running spark'
+  echo 'install java 8 OpenJDK via apt...'
+  apt install openjdk-8-jdk
+  fi 
+
+}
+
 install_spark(){
   # exit running the script if any of the following failed (simple command exits with a nonzero exit value) 
   set -e
@@ -67,5 +80,6 @@ test_spark_install(){
   fi 
 }
 
+install_java
 install_spark
 test_spark_install
