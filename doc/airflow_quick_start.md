@@ -11,7 +11,7 @@ conda update conda && conda create -n XJob_env python=3.5
 source activate XJob_dev
 # clone the repo
 git clone https://github.com/yennanliu/XJob 
-cd ~ && bash install_pyspark.sh 
+cd ~ && bash XJob/install_pyspark.sh 
 
 # STEP 1) run the dev env and export SPARK_HOME
 source activate XJob_env
