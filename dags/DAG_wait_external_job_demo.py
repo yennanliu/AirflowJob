@@ -32,7 +32,8 @@ end_dag = DummyOperator(task_id='END_dag')
 
 source = DummyOperator(task_id='source', dag=dag)
 
-dep_dags = ['hello_world_dag']
+dep_dags = ['hello_world_dag',
+            'DAG_airflow_shell_job_demo']
 
 for dep_dag in dep_dags:
 
