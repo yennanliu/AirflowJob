@@ -1,4 +1,4 @@
-import unittest
+import pytest, unittest
 from datetime import datetime
 from airflow import DAG
 from airflow.models import TaskInstance

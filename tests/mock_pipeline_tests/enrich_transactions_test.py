@@ -1,6 +1,6 @@
+import pytest, unittest
 from dags.spark.union_transactions import union_transactions
 from dags.spark.enrich_transactions import enrich_transactions
-
 
 def test_enrich_transactions(spark):
     spark.sql("USE tst_app").collect()

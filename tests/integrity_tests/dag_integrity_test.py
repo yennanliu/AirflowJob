@@ -6,8 +6,7 @@
 
 import importlib
 import os
-
-import pytest
+import pytest, unittest
 from airflow import models as af_models
 
 DAG_PATH = os.path.join(
