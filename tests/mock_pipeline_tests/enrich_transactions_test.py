@@ -29,3 +29,6 @@ def test_enrich_transactions(spark):
         WHERE payer_account='NL00XXXX0000000000'
         OR beneficiary_account = 'NL00XXXX0000000000'
     """).first().ct == 0
+
+if __name__ == '__main__':
+    pytest.main([__file__])
