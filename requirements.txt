@@ -6,4 +6,5 @@ apache-airflow
 celery
 redis
 coverage
+hive
 #apache-airflow[postgres,mysql]
