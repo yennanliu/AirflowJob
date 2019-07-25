@@ -6,3 +6,11 @@
 airflow.cfg
 metastore_db
 spark-warehouse
+*.class
+*.cache/
+*.log
+.coverage
+airflow-webserver.pid
+airflow.db
+logs/
+unittests.cfg
