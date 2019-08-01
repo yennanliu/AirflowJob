@@ -3,11 +3,9 @@ import yaml
 import os
 import sqlite3
 
-
 #################################################################
 # DELETE DAG JOB RUN LOG/INSTANCE/ SQLITE (AIRFLOW BACKEND)
 #################################################################
-
 
 def truncate_airflow_table(cursor,tablename):
     sql = """

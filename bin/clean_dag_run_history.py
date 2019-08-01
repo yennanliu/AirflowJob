@@ -7,7 +7,6 @@ import psycopg2
 # DELETE DAG JOB RUN LOG/INSTANCE/ POSTGRE (AIRFLOW BACKEND)
 #################################################################
 
-
 def truncate_airflow_table(cursor,tablename):
     sql = """
         TRUNCATE TABLE public."{}"
@@ -37,7 +36,6 @@ def main():
       except Exception as e:
           print ('Truncate table failed.. ')
           print (e)
-
 
 if __name__ == '__main__':
     main()
