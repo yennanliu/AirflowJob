@@ -1,5 +1,7 @@
 sudo: required
 
+language: python
+
 services:
   - docker
 
@@ -28,6 +30,7 @@ script:
   - docker images
 
 after_success:
+  - coverage report
   - coveralls
 
 before_deploy:
