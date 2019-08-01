@@ -4,7 +4,7 @@ slackclient
 apache-airflow
 celery
 redis
-coverage
+coveralls
 hive
 codecov
 pytest

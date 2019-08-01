@@ -28,7 +28,7 @@ script:
   - docker images
 
 after_success:
-  - codecov
+  - coveralls
 
 before_deploy:
   - echo "$REGISTRY_PASS" | docker login -u "$REGISTRY_USER" --password-stdin && echo "docker login OK" || echo "docker login failed"
