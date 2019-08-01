@@ -6,6 +6,6 @@ celery
 redis
 coverage
 hive
-coveralls
+codecov
 pytest
 #apache-airflow[postgres,mysql]
