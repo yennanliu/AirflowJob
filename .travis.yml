@@ -18,6 +18,9 @@ before_install:
   - echo REGISTRY_USER = $REGISTRY_USER && echo REGISTRY_PASS = $REGISTRY_PASS
   - echo 'docker bulid...' && docker build . -t xjob_env_instance
 
+install:
+  - pip install coveralls
+
 script:
   - echo ' -----------------  TEST PART 1 ----------------- '
   - echo 'DOCKER TEST' && docker run -it xjob_env_instance echo "docker test 123"
@@ -35,3 +38,6 @@ deploy:
   script: (echo ----------------- DEPLOY PART 1----------------- && docker commit $container_id yennanliu/xjob_env_instance:V1 && docker push yennanliu/xjob_env_instance:V1) 
   on:
     branch: master
+
+after_success:
+  - coveralls
