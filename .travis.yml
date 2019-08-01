@@ -18,9 +18,6 @@ before_install:
   - echo REGISTRY_USER = $REGISTRY_USER && echo REGISTRY_PASS = $REGISTRY_PASS
   - echo 'docker bulid...' && docker build . -t xjob_env_instance
 
-install:
-  - pip install coveralls
-
 script:
   - echo ' -----------------  TEST PART 1 ----------------- '
   - echo 'DOCKER TEST' && docker run -it xjob_env_instance echo "docker test 123"

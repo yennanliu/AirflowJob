@@ -1,10 +1,11 @@
 instapy
 tweepy
-pytest
 slackclient
 apache-airflow
 celery
 redis
 coverage
 hive
+coveralls
+pytest
 #apache-airflow[postgres,mysql]
