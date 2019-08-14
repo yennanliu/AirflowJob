@@ -25,6 +25,7 @@ $bash /Users/$USER/Xjob/install_pyspark.sh
 COMMENT1
 
 install_java(){
+  set +e
   if [ -n `which java` ]; then 
   echo 'java install OK'
   which java
@@ -34,12 +35,13 @@ install_java(){
   echo 'install java 8 OpenJDK via apt...'
   apt install openjdk-8-jdk
   fi 
+  set -e 
 
 }
 
 install_spark(){
   # exit running the script if any of the following failed (simple command exits with a nonzero exit value) 
-  set -e
+  set +e
   # get ops route 
   my_route=$(pwd)
   echo 'my_route : ' $my_route
@@ -64,10 +66,12 @@ install_spark(){
   # declare env parameter
   export SPARK_HOME=$my_route/spark
   export PATH=$SPARK_HOME/bin:$PATH
+  set -e 
 
 }
 
 test_spark_install(){
+  set +e
   which pyspark
   which spark-submit 
   if  spark-submit dags/src/pyspark_demo.py ;  then  
@@ -78,6 +82,7 @@ test_spark_install(){
   else 
   echo 'spark NOT install successfully '
   fi 
+  set -e 
 }
 
 install_java
