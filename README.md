@@ -3,6 +3,7 @@
 [![Build Status](https://img.shields.io/travis/yennanliu/Python.svg?label=Travis%20CI&logo=travis&style=flat-square)](https://travis-ci.org/yennanliu/Xjob)&nbsp;
 [![Coverage Status](https://coveralls.io/repos/github/yennanliu/XJob/badge.svg)](https://coveralls.io/github/yennanliu/XJob)
 [![PRs](https://img.shields.io/badge/PRs-welcome-6574cd.svg)](https://github.com/yennanliu/Xjob/pulls)
+![](https://img.shields.io/github/repo-size/yennanliu/Xjob.svg?label=Repo%20size&style=flat-square)&nbsp;
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg?style=flat-square)](https://gitpod.io/#https://github.com/yennanliu/Xjob)
 
