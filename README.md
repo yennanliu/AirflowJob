@@ -1,7 +1,6 @@
 # XJob
 
-[![Build Status](https://travis-ci.org/yennanliu/Xjob.svg?branch=master)](https://travis-ci.org/yennanliu/Xjob)
-[![Build Status](https://img.shields.io/travis/yennanliu/Python.svg?label=Travis%20CI&logo=travis&style=flat-square)](https://travis-ci.org/yennanliu/Python)&nbsp;
+[![Build Status](https://img.shields.io/travis/yennanliu/Python.svg?label=Travis%20CI&logo=travis&style=flat-square)](https://travis-ci.org/yennanliu/Xjob)&nbsp;
 [![Coverage Status](https://coveralls.io/repos/github/yennanliu/XJob/badge.svg)](https://coveralls.io/github/yennanliu/XJob)
 [![PRs](https://img.shields.io/badge/PRs-welcome-6574cd.svg)](https://github.com/yennanliu/Xjob/pulls)
 
