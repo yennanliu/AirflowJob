@@ -1,10 +1,9 @@
 #!/bin/sh
-# https://github.com/timgrossmann/InstaPy
-
 #################################################################
 # SHELL HELP INSTALL INSTAPY ENV   
 #################################################################
 
+# https://github.com/timgrossmann/InstaPy
 
 # 1) install dev env 
 yes Y | conda create -n instapy python=3.6

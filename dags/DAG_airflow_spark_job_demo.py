@@ -29,4 +29,3 @@ with DAG('DAG_airflow_spark_job_demo', default_args=default_args, schedule_inter
     end_dag = DummyOperator(task_id='END_dag')
 
     start_dag >> spark_job >> spark_ml_job >> end_dag
-

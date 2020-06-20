@@ -4,9 +4,6 @@
 # SHELL HELP LAUCH "NON-ASTRO" AIRFLOW  
 #################################################################
 
-
-
-
 # STEP 1) run the dev env and export SPARK_HOME
 source activate pyspark_
 export SPARK_HOME=/Users/$USER/spark
@@ -29,5 +26,3 @@ airflow scheduler
 
 # STEP 5) access airflow UI
 # http://localhost:8088
-
-

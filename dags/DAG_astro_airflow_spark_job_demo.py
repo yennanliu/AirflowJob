@@ -1,3 +1,11 @@
+#################################################################
+# DAG DEMO RUN SAPRK SCRIPT IN AIRFLOW ETL FRAMEWORK    
+#################################################################
+
+# ref 
+# https://blog.insightdatascience.com/scheduling-spark-jobs-with-airflow-4c66f3144660
+# https://github.com/danielblazevski/airflow-pyspark-reddit
+
 from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.python_operator import PythonOperator
@@ -7,14 +15,6 @@ from datetime import datetime, timedelta
 import os
 import sys 
 #from src import Spark_ML_RandomForestClassifier_titanic_demo 
-
-#################################################################
-# DAG DEMO RUN SAPRK SCRIPT IN AIRFLOW ETL FRAMEWORK    
-#################################################################
-
-# ref 
-# https://blog.insightdatascience.com/scheduling-spark-jobs-with-airflow-4c66f3144660
-# https://github.com/danielblazevski/airflow-pyspark-reddit
 
 os.environ['SPARK_HOME'] = '/usr/local/airflow/'
 sys.path.append(os.environ['SPARK_HOME'])
@@ -70,4 +70,3 @@ with DAG('DAG_astro_airflow_spark_job_demo', default_args=default_args, schedule
     end_dag = DummyOperator(task_id='END_dag')
 
     start_dag >> print_path_env_task >>  print_ls_task >> export_spark_home_task  >> spark_job >> spark_ml_job >> end_dag
-

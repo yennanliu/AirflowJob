@@ -28,4 +28,3 @@ with DAG('DAG_airflow_JAVA_job_demo', default_args=default_args, schedule_interv
     end_dag = DummyOperator(task_id='END_dag')
 
     start_dag >> java_job1_compile >> java_job1_run >> end_dag
-

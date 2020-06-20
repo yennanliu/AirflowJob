@@ -3,7 +3,6 @@
 - Please run the following commands step by step, then the airflow server should be able to run local
 - Access the UI : http://localhost:8088  
 
-
 ```bash
 # STEP 0) INSTALL ENVIRONMENT
 conda update conda && conda create -n XJob_env python=3.5 

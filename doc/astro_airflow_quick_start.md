@@ -60,4 +60,3 @@ curl -X POST -H 'Content-type: application/json' --data '{"text":" 12345"}' http
 ### ref 
 - Set up spark confing in Airflow UI 
 	- https://stackoverflow.com/questions/50532799/unable-to-execute-spark-job-using-sparksubmitoperator/50541640#50541640
-	

@@ -29,4 +29,3 @@ with DAG('DAG_airflow_JAVA_spark_job_demo', default_args=default_args, schedule_
     end_dag = DummyOperator(task_id='END_dag')
 
     start_dag >> java_spark_job1_compile >> java_spark_job1_run >> end_dag
-
