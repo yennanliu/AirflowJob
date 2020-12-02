@@ -19,7 +19,7 @@ with DAG(dag_id='hello_world_dag',
 
     start_dag = DummyOperator(task_id='START_dag')
 
-    hello_operator = PythonOperator(task_id='hello_task', python_callable=print_hello, dag=dag)
+    #hello_operator = PythonOperator(task_id='hello_task', python_callable=print_hello, dag=dag)
 
     end_dag1 = DummyOperator(task_id='END1_dag')
 
