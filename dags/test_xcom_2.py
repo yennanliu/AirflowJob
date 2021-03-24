@@ -2,7 +2,6 @@ from airflow import DAG
 from airflow.operators.python_operator       import PythonOperator
 from datetime import datetime, timedelta
 
-# https://stackoverflow.com/questions/53159065/how-can-i-return-lists-from-python-operator-in-airflow-and-use-it-as-argument-fo
 
 default_args = {
     'owner': 'airflow',
@@ -24,12 +23,13 @@ def parse_1(**kwargs):
     ti = kwargs['ti']
     # get listOfDict
     v1 = ti.xcom_pull(key=None, task_ids='get_lists')
+    print("*** v1 = " + str(v1))
 
 def parse_2(**kwargs):
     ti = kwargs['ti']
     # get listOfDict
     v1 = ti.xcom_pull(key=None, task_ids='get_lists')
-
+    print("*** v1 = " + str(v1))
 
 for data in get_list():
     sub_task1 = PythonOperator(
