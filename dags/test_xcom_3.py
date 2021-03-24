@@ -31,11 +31,17 @@ def push2(**kwargs):
 
 
 def pull1(**kwargs):
-    pulled_value_1 = ti.xcom_pull(key=None, task_ids='push')
+    ti = kwargs['ti']
+    #pulled_value_1 = ti.xcom_pull(key=None, task_ids='push')
+    #pulled_value_1 = ti.xcom_pull(key='value from pusher 1', task_ids='push')
+    
+    ### NOTICE : WE NEED SET task_ids='push1' THEN CAN GET RETURN VALUES FROM "push1" py method
+    pulled_value_1 = ti.xcom_pull(key=None, task_ids='push1') 
     print ("*** pulled_value_1 = " + str(pulled_value_1))
 
 
 def pull2(**kwargs):
+    ti = kwargs['ti']
     pulled_value_2 = ti.xcom_pull(task_ids='push2')
     print ("*** pulled_value_2 = " + str(pulled_value_2))
 
