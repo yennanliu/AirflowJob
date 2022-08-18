@@ -60,3 +60,6 @@
 
 ### CI/CD 
 - [Travis](https://travis-ci.org/yennanliu/Xjob/builds)
+
+### Airflow tutorial
+- https://github.com/ChickenBenny/Airflow-tutorial?fbclid=IwAR0AABmSGY40B_sNURRxxpoawn16acCfWJHKytO5Kxp1yNjWE1eSLA6HUAM
